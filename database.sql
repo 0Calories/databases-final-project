@@ -1,5 +1,5 @@
 CREATE TABLE Restaurant (
-  Restaurant_id INTEGER PRIMARY KEY,
+  restaurant_id INTEGER PRIMARY KEY,
   name VARCHAR(32),
   type VARCHAR(32),
   url VARCHAR(255)
@@ -22,7 +22,7 @@ CREATE TABLE MenuItem (
   category VARCHAR(32),
   description VARCHAR(255),
   price DECIMAL(3,2) CHECK (price >= 0),
-  Restaurant_id INTEGER REFERENCES Restaurant(Restaurant_id)
+  restaurant_id INTEGER REFERENCES Restaurant(restaurant_id)
 );
 
 CREATE TABLE Rating (
@@ -35,7 +35,7 @@ CREATE TABLE Rating (
   staff INTEGER CHECK (staff >= 1 AND staff <= 5) DEFAULT 1,
   rating INTEGER CHECK (rating >= 1 AND rating <= 5) DEFAULT 1,
   comments VARCHAR(255),
-  Restaurant_id INTEGER REFERENCES Restaurant(Restaurant_id)
+  restaurant_id INTEGER REFERENCES Restaurant(restaurant_id)
 );
 
 CREATE TABLE RatingItem (
@@ -55,5 +55,6 @@ CREATE TABLE Location (
   street_address VARCHAR(32),
   hour_open TIME,
   hour_close TIME,
-  Restaurant_id INTEGER REFERENCES Restaurant(Restaurant_id)
+  restaurant_id INTEGER REFERENCES Restaurant(restaurant_id)
 );
+
