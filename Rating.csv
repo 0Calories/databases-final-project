@@ -1,101 +1,97 @@
-﻿UserID,Date,Price,Food,Mood,Staff,Comments,RestaurantID
-JD!,2016-01-14,2,3,1,2,The mood could be better. Not great.,R646F6F4
-js,2016-02-12,1,3,2,4,Super expensive.,FR65F6R5
-jdoedoe,2016-02-23,4,4,5,5,Great place.,FV6566FV
-boopSmith,2016-03-04,5,2,2,1,Meh.,6V4H5G51
-blakey,2016-06-14,5,5,5,5,I LOVE THIS PLACE!,D5G8DG57
-iambatman,2016-07-19,3,4,4,4,Great place.,F5J7S5G8
-disney,2016-08-01,1,4,3,3,,F4S5J8F4
-ed,2016-09-12,4,3,3,5,,G5A6H6R6
-kat45,2016-09-14,2,5,1,1,The mood could be better. Not great.,H4S6F5A5
-woof,2016-10-03,5,2,1,4,Meh.,4B7D1V3S
-joee,2016-10-06,1,4,2,2,,J857G54D
-bob,2016-10-27,2,3,2,1,,G4S6A5F8
-dr.phil,2016-11-22,5,5,1,5,Great place. Super expensive.,R646F6F4
-thor,2017-06-30,4,4,3,2,,J857G54D
-voldy,2017-08-01,3,1,2,3,,G4S6A5F8
-woof,2017-08-14,4,1,1,5,,H4S6F5A5
-thor,2017-09-13,1,2,2,4,,R646F6F4
-jdoedoe,2017-10-02,5,4,2,5,,F4S5J8F4
-js,2017-10-04,4,5,2,3,Great place. Super expensive.,D5G8DG57
-kat45,2017-10-18,4,3,2,5,,4B7D1V3S
-boopSmith,2017-11-14,2,5,3,4,,6V4H5G51
-ed,2017-12-29,1,2,3,2,Meh.,FV6566FV
-dr.phil,2018-01-03,2,2,2,3,,G5A6H6R6
-voldy,2018-02-27,4,5,2,2,,F5J7S5G8
-blakey,2018-03-06,3,2,2,2,,FR65F6R5
-disney,2016-01-05,4,2,5,2,Super expensive.,F5J7S5G8
-joee,2016-01-06,4,3,1,1,,D5G8DG57
-bob,2016-01-27,2,4,5,3,,J857G54D
-JD!,2016-03-10,1,4,1,5,Meh.,R646F6F4
-iambatman,2016-05-27,4,1,5,4,,FR65F6R5
-ed,2016-07-22,3,1,2,3,,G5A6H6R6
-iambatman,2016-08-25,2,3,2,4,,4B7D1V3S
-kat45,2016-10-07,3,2,1,5,,G4S6A5F8
-dr.phil,2016-10-25,3,1,1,4,,H4S6F5A5
-disney,2016-12-23,1,1,5,5,Exepensive,FV6566FV
-JD!,2017-02-01,4,2,2,2,,6V4H5G51
-joee,2017-03-14,4,3,3,4,,F4S5J8F4
-jdoedoe,2017-04-18,5,3,4,5,Great place. Super expensive.,H4S6F5A5
-bob,2017-07-05,2,3,3,4,,J857G54D
-thor,2017-08-07,4,5,4,5,,6V4H5G51
-blakey,2017-09-20,4,4,5,1,Great place. Super expensive.,F4S5J8F4
-woof,2017-09-29,1,1,4,4,,G4S6A5F8
-js,2017-10-30,5,3,1,2,,4B7D1V3S
-boopSmith,2017-11-01,5,5,1,2,I LOVE THIS PLACE!,R646F6F4
-voldy,2017-12-07,2,4,1,3,Great place.,G5A6H6R6
-js,2018-01-09,5,4,3,5,,F5J7S5G8
-voldy,2018-01-22,1,3,1,4,,D5G8DG57
-joee,2018-01-30,2,1,2,5,The mood could be better. Not great.,FV6566FV
-jdoedoe,2018-03-16,2,4,3,1,Meh.,FR65F6R5
-thor,2018-03-23,1,2,2,4,,FR65F6R5
-woof,2016-01-08,2,5,2,2,,6V4H5G51
-boopSmith,2016-01-12,5,2,3,3,Great place. Super expensive.,G5A6H6R6
-ed,2016-03-04,3,2,3,2,,J857G54D
-iambatman,2016-03-15,5,4,5,5,,H4S6F5A5
-blakey,2016-04-05,5,1,3,1,,FV6566FV
-disney,2016-04-29,2,1,5,3,,G4S6A5F8
-dr.phil,2016-05-10,4,2,4,5,,F4S5J8F4
-kat45,2016-07-13,5,4,4,3,Great place. Super expensive.,R646F6F4
-bob,2016-07-14,2,5,3,5,,F5J7S5G8
-JD!,2016-10-17,4,3,5,1,,4B7D1V3S
-ed,2016-10-26,5,1,5,4,Meh.,D5G8DG57
-dr.phil,2017-01-02,1,5,5,3,,6V4H5G51
-voldy,2017-01-11,4,2,2,3,,G4S6A5F8
-boopSmith,2017-01-20,5,5,3,2,,FR65F6R5
-disney,2017-02-01,4,5,1,5,Super expensive.,J857G54D
-iambatman,2017-02-21,5,3,3,5,,D5G8DG57
-JD!,2017-04-06,1,3,3,1,,H4S6F5A5
-woof,2017-05-09,1,5,3,3,,FV6566FV
-js,2017-08-11,2,4,1,5,I LOVE THIS PLACE!,4B7D1V3S
-jdoedoe,2017-08-28,3,4,3,1,Great place.,R646F6F4
-kat45,2017-11-13,1,3,5,2,,F5J7S5G8
-bob,2017-12-22,1,1,1,2,,F4S5J8F4
-joee,2017-12-25,1,4,4,2,The mood could be better. Not great.,G5A6H6R6
-thor,2018-01-01,5,5,2,3,Meh.,R646F6F4
-blakey,2018-03-27,4,3,5,3,,D5G8DG57
-kat45,2016-02-02,1,2,3,2,,FV6566FV
-dr.phil,2016-02-05,1,1,2,1,Great place. Super expensive.,G5A6H6R6
-JD!,2016-03-03,3,1,4,2,,G4S6A5F8
-blakey,2016-05-06,3,4,1,1,,FR65F6R5
-ed,2016-07-21,2,1,4,2,,4B7D1V3S
-voldy,2016-07-29,5,4,5,2,,F4S5J8F4
-woof,2016-08-19,1,2,1,1,,F5J7S5G8
-boopSmith,2016-09-05,1,5,3,3,Great place. Super expensive.,6V4H5G51
-joee,2016-09-20,3,2,4,5,,J857G54D
-disney,2016-10-14,2,5,5,1,,H4S6F5A5
-thor,2016-11-16,4,5,2,1,Meh.,D5G8DG57
-js,2017-01-30,2,4,3,2,,4B7D1V3S
-bob,2017-02-24,5,1,1,4,,G4S6A5F8
-iambatman,2017-03-16,2,1,1,5,,H4S6F5A5
-jdoedoe,2017-03-20,4,3,4,5,Super expensive.,F5J7S5G8
-joee,2017-04-07,4,2,3,1,,R646F6F4
-ed,2017-06-06,4,1,4,5,,FR65F6R5
-boopSmith,2017-06-28,3,3,2,3,,6V4H5G51
-thor,2017-08-22,1,2,3,1,,J857G54D
-woof,2017-10-12,1,1,3,4,Meh.,FV6566FV
-disney,2017-11-27,5,5,1,2,Great place.,G5A6H6R6
-,,,,,,,
-,,,,,,,
-,,,,,,,
-,,,,,,,
+UserID	Date	Price	Food	Mood	Staff	Comments	RestaurantID
+JD!	2016-01-14	2	3	1	2	The mood could be better. Not great.	R646F6F4
+js	2016-02-12	1	3	2	4	Super expensive.	FR65F6R5
+jdoedoe	2016-02-23	2	4	5	5	Great place.	VI7582ET
+boopSmith	2016-03-04	5	2	2	1	Meh.	6V4H5G51
+blakey	2016-06-14	5	5	5	5	I LOVE THIS PLACE!	D5G8DG57
+iambatman	2016-07-19	3	4	4	4	Great place.	F5J7S5G8
+disney	2016-08-01	1	4	3	3		F4S5J8F4
+ed	2016-09-12	2	3	3	1	Not too good	K3B321R7
+kat45	2016-09-14	2	5	1	1	The mood could be better. Not great.	H4S6F5A5
+woof	2016-10-03	5	5	3	4	Amazing food!!!	8A6D1V3K
+joee	2016-10-06	1	4	4	2		K827A57Q
+bob	2016-10-27	5	3	5	1	Very expensive	Q315A59R
+dr.phil	2016-11-22	5	5	1	5	Great place. Super expensive.	R646F6F4
+thor	2017-06-30	2	5	5	1	Staff was rude	K827A57Q
+voldy	2017-08-01	3	1	5	4	Amazing mood	Q315A59R
+woof	2017-08-14	4	1	1	5		H4S6F5A5
+thor	2017-09-13	1	2	2	4		R646F6F4
+jdoedoe	2017-10-02	5	4	2	5		F4S5J8F4
+js	2017-10-04	4	5	2	3	Great place. Super expensive.	D5G8DG57
+kat45	2017-10-18	5	5	2	5	Food is excellent	8A6D1V3K
+boopSmith	2017-11-14	2	5	3	4		6V4H5G51
+ed	2017-12-29	5	3	3	2	Portion is great	VI7582ET
+dr.phil	2018-01-03	1	3	2	1	Overpriced	K3B321R7
+voldy	2018-02-27	4	5	2	2		F5J7S5G8
+blakey	2018-03-06	3	2	2	2		FR65F6R5
+disney	2016-01-05	4	2	5	2	Super expensive.	F5J7S5G8
+joee	2016-01-06	4	3	1	1		D5G8DG57
+bob	2016-01-27	5	5	5	3	BEST PLACE EVER	K827A57Q
+JD!	2016-03-10	1	4	1	5	Meh.	R646F6F4
+iambatman	2016-05-27	4	1	5	4		FR65F6R5
+ed	2016-07-22	3	4	3	4	Food was ok	K3B321R7
+iambatman	2016-08-25	4	4	2	1	Rude staff	8A6D1V3K
+kat45	2016-10-07	5	2	1	5	Friendly staff	Q315A59R
+dr.phil	2016-10-25	3	1	1	4		H4S6F5A5
+disney	2016-12-23	1	1	3	2	Exepensive	VI7582ET
+JD!	2017-02-01	4	2	2	2		6V4H5G51
+joee	2017-03-14	4	3	3	4		F4S5J8F4
+jdoedoe	2017-04-18	5	3	4	5	Great place. Super expensive.	H4S6F5A5
+bob	2017-07-05	3	3	3	4	So so	K827A57Q
+thor	2017-08-07	4	5	4	5		6V4H5G51
+blakey	2017-09-20	4	4	5	1	Great place. Super expensive.	F4S5J8F4
+woof	2017-09-29	5	1	4	4	expensive food	Q315A59R
+js	2017-10-30	5	4	1	4	great price	8A6D1V3K
+boopSmith	2017-11-01	5	5	1	2	I LOVE THIS PLACE!	R646F6F4
+voldy	2017-12-07	3	4	2	3	Great place.	K3B321R7
+js	2018-01-09	5	4	3	5		F5J7S5G8
+voldy	2018-01-22	1	3	1	4		D5G8DG57
+joee	2018-01-30	3	2	4	5	Staff was friendly	VI7582ET
+jdoedoe	2018-03-16	2	4	3	1	Meh.	FR65F6R5
+thor	2018-03-23	1	2	2	4		FR65F6R5
+woof	2016-01-08	2	5	2	2		6V4H5G51
+boopSmith	2016-01-12	5	5	4	2	My fav	K3B321R7
+ed	2016-03-04	5	3	3	4	Too expensive	K827A57Q
+iambatman	2016-03-15	5	4	5	5		H4S6F5A5
+blakey	2016-04-05	4	3	1	4		VI7582ET
+disney	2016-04-29	5	2	5	4		Q315A59R
+dr.phil	2016-05-10	4	2	4	5		F4S5J8F4
+kat45	2016-07-13	5	4	4	3	Great place. Super expensive.	R646F6F4
+bob	2016-07-14	2	5	3	5		F5J7S5G8
+JD!	2016-10-17	4	3	1	2	Decent place	8A6D1V3K
+ed	2016-10-26	5	1	5	4	Meh.	D5G8DG57
+dr.phil	2017-01-02	1	5	5	3		6V4H5G51
+voldy	2017-01-11	5	4	2	3	Pretty expensive	Q315A59R
+boopSmith	2017-01-20	5	5	3	2		FR65F6R5
+disney	2017-02-01	5	3	1	5	Super expensive.	K827A57Q
+iambatman	2017-02-21	5	3	3	5		D5G8DG57
+JD!	2017-04-06	1	3	3	1		H4S6F5A5
+woof	2017-05-09	4	5	1	1	Love this pho	VI7582ET
+js	2017-08-11	5	4	3	5	My favorite!!!	8A6D1V3K
+jdoedoe	2017-08-28	3	4	3	1	Great place.	R646F6F4
+kat45	2017-11-13	1	3	5	2		F5J7S5G8
+bob	2017-12-22	1	1	1	2		F4S5J8F4
+joee	2017-12-25	2	4	1	2	The mood could improve	K3B321R7
+thor	2018-01-01	5	5	2	3	Meh.	R646F6F4
+blakey	2018-03-27	4	3	5	3		D5G8DG57
+kat45	2016-02-02	5	2	3	2	Best pho in town	VI7582ET
+dr.phil	2016-02-05	1	1	2	1	Super expensive.	K3B321R7
+JD!	2016-03-03	4	2	4	5		Q315A59R
+blakey	2016-05-06	3	4	1	1		FR65F6R5
+ed	2016-07-21	2	3	4	3	it's ok	8A6D1V3K
+voldy	2016-07-29	5	4	5	2		F4S5J8F4
+woof	2016-08-19	1	2	1	1		F5J7S5G8
+boopSmith	2016-09-05	1	5	3	3	Great place. Super expensive.	6V4H5G51
+joee	2016-09-20	2	3	4	5	Nice staff	K827A57Q
+disney	2016-10-14	2	5	5	1		H4S6F5A5
+thor	2016-11-16	4	5	2	1	Meh.	D5G8DG57
+js	2017-01-30	4	5	3	2	Amazing food!!!	8A6D1V3K
+bob	2017-02-24	5	5	3	4	Food was great	Q315A59R
+iambatman	2017-03-16	2	1	1	5		H4S6F5A5
+jdoedoe	2017-03-20	4	3	4	5	Super expensive.	F5J7S5G8
+joee	2017-04-07	4	2	3	1		R646F6F4
+ed	2017-06-06	4	1	4	5		FR65F6R5
+boopSmith	2017-06-28	3	3	2	3		6V4H5G51
+thor	2017-08-22	1	2	4	5	It was okay	K827A57Q
+woof	2017-10-12	5	5	5	5	Special chef tri	VI7582ET
+disney	2017-11-27	1	1	1	2	Sucks	K3B321R7
