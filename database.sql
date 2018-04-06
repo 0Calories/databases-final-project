@@ -1,3 +1,5 @@
+--testing hi guys
+
 CREATE TABLE Restaurant (
   restaurant_id INTEGER PRIMARY KEY,
   name VARCHAR(32),
@@ -57,4 +59,3 @@ CREATE TABLE Location (
   hour_close TIME,
   restaurant_id INTEGER REFERENCES Restaurant(restaurant_id)
 );
-
