@@ -1,5 +1,3 @@
---testing hi guys
-
 CREATE TABLE Restaurant (
   restaurant_id INTEGER PRIMARY KEY,
   name VARCHAR(32),
