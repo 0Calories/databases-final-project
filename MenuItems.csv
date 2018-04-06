@@ -1,0 +1,59 @@
+﻿ItemID,name,type,category,description,price,RestaurantID
+6Y884,Antipasto,Food,Starter,,18.00,R646F6F4
+9XFS2,Beef Wellington,Food,Main,This is a description. ,25.00,R646F6F4
+30GE0,Creme Brulee,Food,Desert,,9.00,R646F6F4
+907C3,Apple Mint Martini,Beverage,,This is a description. ,7.00,R646F6F4
+5KR8O,Ratatouille,Food,Main,,26.00,R646F6F4
+J5VMZ,Samosa,Food,Starter,This is a description. ,5.00,FR65F6R5
+8LWK8,Paneer Tikka Masala,Food,Main,,15.00,FR65F6R5
+3S82C,Gulab Jamun,Food,Desert,This is a description. ,5.00,FR65F6R5
+ZBTNB,Mango shake,Beverage,,,3.00,FR65F6R5
+NH596,Naan,Food,Main,,3.00,FR65F6R5
+WJBBM,Greek Salad,Food,Starter,This is a description. ,5.00,FV6566FV
+R9GJG,Falafal Sandwich,Food,Main,,9.99,FV6566FV
+MADO4,Cake,Food,Desert,This is a description. ,5.99,FV6566FV
+MNWY9,Apple juice,Beverage,,This is a description. ,2.20,FV6566FV
+EOYIG,Gyros,Food,Main,,11.99,FV6566FV
+C8BZ1,Mozzarella sticks,Food,Starter,,12.75,6V4H5G51
+H41TT,Veg pizza,Food,Main,,18.50,6V4H5G51
+GIINU,Cupcakes,Food,Desert,This is a description. ,5.50,6V4H5G51
+KSZZR,Coke,Beverage,,,1.25,6V4H5G51
+SSYQR,Calzone,Food,Main,This is a description. ,12.99,6V4H5G51
+S0MWA,Falafal Sandwich,Food,Main,,8.99,D5G8DG57
+XN6OR,Orange Juice,Beverage,,This is a description. ,2.25,D5G8DG57
+0RKRT,Shawarma,Food,Main,This is a description. ,9.95,D5G8DG57
+P6F27,Scallops,Food,Starter,This is a description. ,9.95,F5J7S5G8
+BF1RQ,Mac and Cheese,Food,Main,,13.50,F5J7S5G8
+951RF,Dulce De Leche,Food,Desert,This is a description. ,12.99,F5J7S5G8
+R66GG,Vodka martini,Beverage,,,7.00,F5J7S5G8
+GY0MB,Dim Sum,Food,Main,This is a description. ,18.50,F5J7S5G8
+3R5RY,Edamame,Food,Starter,,9.95,F4S5J8F4
+2H9Y9,Sushi,Food,Main,This is a description. ,13.50,F4S5J8F4
+VIJQE,Ice cream,Food,Desert,,12.99,F4S5J8F4
+17E7N,Tea,Beverage,,This is a description. ,7.00,F4S5J8F4
+H9QE5,Fried rice,Food,Main,,18.50,F4S5J8F4
+TX1HF,Fries,Food,Starter,,9.95,G5A6H6R6
+EZS37,Burger 1,Food,Main,This is a description. ,13.50,G5A6H6R6
+4HC7M,Churros,Food,Desert,,12.99,G5A6H6R6
+YH5VC,Milkshake,Beverage,,,7.00,G5A6H6R6
+MF0JQ,Burger 1,Food,Main,This is a description. ,18.50,G5A6H6R6
+QJFA6,Fresh Spring Rolls,Food,Starter,,9.95,H4S6F5A5
+8YSPJ,Noodles,Food,Main,,13.50,H4S6F5A5
+R6XI7,Cheesecake,Food,Desert,,12.99,H4S6F5A5
+6JKCB,Orange Juice,Beverage,,This is a description. ,7.00,H4S6F5A5
+NO400,Rice,Food,Main,,18.50,H4S6F5A5
+OWY9Y,Gazpacho,Food,Starter,This is a description. ,9.95,4B7D1V3S
+KTC2D,Gnochi,Food,Main,,13.50,4B7D1V3S
+Z0XDR,Tiramisu,Food,Desert,,12.99,4B7D1V3S
+4QXXO,Wine,Beverage,,This is a description. ,7.00,4B7D1V3S
+62QFV,Ravioli,Food,Main,,18.50,4B7D1V3S
+ZR9YT,Bruschetta,Food,Starter,This is a description. ,9.95,4B7D1V3S
+HS4PW,Tacos,Food,Main,,13.50,J857G54D
+3V0XK,Churros,Food,Desert,,12.99,J857G54D
+FYU8J,Mango drink,Beverage,,This is a description. ,7.00,J857G54D
+XISJD,Burrito,Food,Main,,18.50,J857G54D
+XQUD6,Platter,Food,Starter,This is a description. ,9.95,G4S6A5F8
+G3XSR,Something vegan,Food,Main,,13.50,G4S6A5F8
+2DPX0,Cheesecake,Food,Desert,This is a description. ,12.99,G4S6A5F8
+ZJZIE,Smoothie,Beverage,,This is a description. ,7.00,G4S6A5F8
+2P61U,Something not vegan,Food,Main,This is a description. ,18.50,G4S6A5F8
