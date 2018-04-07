@@ -52,7 +52,7 @@ CREATE TABLE Location (
   first_open_date DATE,
   manager_name VARCHAR(32),
   phone_number VARCHAR(10),
-  street_address VARCHAR(32),
+  street_address VARCHAR(255),
   hour_open TIME,
   hour_close TIME,
   restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
