@@ -21,7 +21,7 @@ CREATE TABLE MenuItem (
   type VARCHAR(32),
   category VARCHAR(32),
   description VARCHAR(255),
-  price DECIMAL(3,2) CHECK (price >= 0),
+  price DECIMAL(15,2) CHECK (price >= 0),
   restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
 );
 
