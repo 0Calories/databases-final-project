@@ -33,7 +33,6 @@ CREATE TABLE Rating (
   food INTEGER CHECK (food >= 1 AND food <= 5) DEFAULT 1,
   mood INTEGER CHECK (mood >= 1 AND mood <= 5) DEFAULT 1,
   staff INTEGER CHECK (staff >= 1 AND staff <= 5) DEFAULT 1,
-  rating INTEGER CHECK (rating >= 1 AND rating <= 5) DEFAULT 1,
   comments VARCHAR(255),
   restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
 );
