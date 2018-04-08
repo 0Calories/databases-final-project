@@ -47,19 +47,22 @@ public class RestaurantBean {
 		return url;
 	}
 
-	public String existsRestaurant(String name, DataAccess db) {
-		String id = "";
-		String temp;
+	public String[] getRestaurantInfo(String name, DataAccess db) {
+		String tempName;
 		connection = db.getConnection();
 
 		try {
 			st = connection.createStatement();
 			rs = st.executeQuery("SELECT * FROM Restaurant");
 			while (rs.next()) {
-				temp = rs.getString("name");
-				temp = temp.trim();
-				if (temp.compareTo(name.trim()) == 0)
-					id = rs.getString("restaurant_id");
+				tempName = rs.getString("name").trim();
+				if (tempName.compareTo(name.trim()) == 0) {
+					this.name = tempName;
+					restaurantID = rs.getString("restaurant_id");
+					type = rs.getString("type");
+					url = rs.getString("url");
+				}
+					
 			}
 			rs.close();
 			st.close();
@@ -67,7 +70,8 @@ public class RestaurantBean {
 			System.out.println("Cant read from customers table");
 			e.printStackTrace();
 		}
-		return id;
+		String[] results = {this.name, restaurantID, type, url};
+		return results;
 	}
 	
 	//

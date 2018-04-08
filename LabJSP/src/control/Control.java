@@ -25,15 +25,17 @@ public class Control extends HttpServlet {
 		db = new DataAccess();
 		db.openConnection();
 
-		String restaurantID = restaurantbean.existsRestaurant(restaurant_name, db);
-		System.out.println(restaurantID);
+		String[] restaurantInfo = restaurantbean.getRestaurantInfo(restaurant_name, db);
+		for (int i = 0; i < restaurantInfo.length; i++)
+			System.out.println(restaurantInfo[i]);
 
-		if (restaurantID.equals("")) {
+		if (restaurantInfo[0].equals("")) {
+			System.out.println("No results found");
 			// restaurantID = restaurantbean.insertCustomer(customer_name, db);
 		}
 
-		restaurantbean.setName(restaurant_name);
-		restaurantbean.setRestaurantID(String.valueOf(restaurantID));
+		//restaurantbean.setName(restaurant_name);
+		//restaurantbean.setRestaurantID(String.valueOf(restaurantID));
 
 		s.setAttribute("restaurantbean", restaurantbean);
 
