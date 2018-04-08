@@ -65,5 +65,15 @@
        <form action="ActionName" method="POST">
        		<input type="submit" value="Login"/>
        </form>
+	      
+	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('menu.jsp')" />
+	   
+   		<script type="text/javascript">
+		 function openPage(pageURL)
+		 {
+		 window.location.href = pageURL;
+		 }
+		</script>
+
     </body>
 </html>
