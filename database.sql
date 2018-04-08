@@ -22,11 +22,11 @@ CREATE TABLE MenuItem (
   category VARCHAR(32),
   description VARCHAR(255),
   price DECIMAL(15,2) CHECK (price >= 0),
-  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
+  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Rating (
-  user_id VARCHAR(32) REFERENCES Rater(user_id),
+  user_id VARCHAR(32) REFERENCES Rater(user_id) ON DELETE CASCADE,
   rating_date DATE,
   PRIMARY KEY (user_id, rating_date),
   price INTEGER CHECK (price >= 1 AND price <= 5) DEFAULT 1,
@@ -34,13 +34,13 @@ CREATE TABLE Rating (
   mood INTEGER CHECK (mood >= 1 AND mood <= 5) DEFAULT 1,
   staff INTEGER CHECK (staff >= 1 AND staff <= 5) DEFAULT 1,
   comments VARCHAR(255),
-  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
+  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id) ON DELETE CASCADE
 );
 
 CREATE TABLE RatingItem (
-  item_id VARCHAR(32) REFERENCES MenuItem(item_id),
+  item_id VARCHAR(32) REFERENCES MenuItem(item_id) ON DELETE CASCADE,
   rating_item_date DATE,
-  user_id VARCHAR(32) REFERENCES Rater(user_id),
+  user_id VARCHAR(32) REFERENCES Rater(user_id) ON DELETE CASCADE,
   PRIMARY KEY (item_id, rating_item_date, user_id),
   rating INTEGER CHECK (rating >= 1 AND rating <= 5) DEFAULT 1,
   comment VARCHAR(255)
@@ -54,5 +54,5 @@ CREATE TABLE Location (
   street_address VARCHAR(255),
   hour_open TIME,
   hour_close TIME,
-  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id)
+  restaurant_id VARCHAR(32) REFERENCES Restaurant(restaurant_id) ON DELETE CASCADE
 );
