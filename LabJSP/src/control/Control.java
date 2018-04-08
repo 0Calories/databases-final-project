@@ -1,100 +1,74 @@
 package control;
 
+import dbbeans.*;
+
 import connection.DataAccess;
-import java.sql.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-public class Control {
-	private Connection connection;
-	private Statement st;
-	private ResultSet rs;
-	private String name;
-	private String restaurantID;
-	private String type;
-	private String url;
-
+public class Control extends HttpServlet {
+	private DataAccess db;
+	private static final long serialVersionUID = 1L;
+	
 	public Control() {
-	}
-
-	public void setName(String value) {
-		name = value;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setRestaurantID(String value) {
-		restaurantID = value;
-	}
-
-	public String getRestaurantID() {
-		return restaurantID;
+		
 	}
 	
-	public void setType(String value) {
-		type = value;
-	}
+	private void processAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession s = request.getSession(true);
+		String restaurant_name = (String) request.getParameter("restName");
 
-	public String getType() {
-		return type;
-	}
-	
-	public void setUrl(String value) {
-		url = value;
-	}
+		// Restaurant
+		RestaurantBean restaurantbean = new RestaurantBean();
 
-	public String setUrl() {
-		return url;
-	}
+		db = new DataAccess();
+		db.openConnection();
 
-	public String existsRestaurant(String name, DataAccess db) {
-		String id = "";
-		String temp;
-		connection = db.getConnection();
+		String restaurantID = restaurantbean.existsRestaurant(restaurant_name, db);
+		System.out.println(restaurantID);
 
-		try {
-			st = connection.createStatement();
-			rs = st.executeQuery("SELECT * FROM Restaurant");
-			while (rs.next()) {
-				temp = rs.getString("name");
-				temp = temp.trim();
-				if (temp.compareTo(name.trim()) == 0)
-					id = rs.getString("restaurant_id");
-			}
-			rs.close();
-			st.close();
-		} catch (Exception e) {
-			System.out.println("Cant read from customers table");
+		if (restaurantID.equals("")) {
+			// restaurantID = restaurantbean.insertCustomer(customer_name, db);
 		}
-		return id;
+
+		restaurantbean.setName(restaurant_name);
+		restaurantbean.setRestaurantID(String.valueOf(restaurantID));
+
+		s.setAttribute("restaurantbean", restaurantbean);
+
+		// //LIKE ARTIST
+		// LikeArtistBean likeartistbean = new LikeArtistBean();
+		//
+		// if (!likeartistbean.existsLikeArtist(restaurantID, artist_name, db)){
+		// likeartistbean.insertLikeArtist(restaurantID, artist_name, db);
+		// }
+		//
+		// likeartistbean.setDataAccess(db);
+		//
+		// s.setAttribute("likeartistbean", likeartistbean );
+		// s.setAttribute("dataaccess",db);
+		// s.setAttribute("db",db);
+
+		/// SESION
+		s.setAttribute("key", "000");
+		s.setMaxInactiveInterval(1000);
+
+		db.closeConsult();
+
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/menu.jsp");
+		rd.forward(request, response);
+	}
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
 	}
 	
-	//
-	// public int insertCustomer(String name, DataAccess db)
-	// {
-	// connection = db.getConnection();
-	// int id = 0;
-	//
-	// try {
-	// st = connection.createStatement();
-	//
-	// rs = st.executeQuery("SELECT max(restaurantID) as id FROM
-	// laboratories.customer");
-	// rs.next();
-	//
-	// int max_id = rs.getInt(1);
-	// id = max_id + 1;
-	//
-	// System.out.println("ID: "+id);
-	//
-	// st.executeUpdate("INSERT INTO laboratories.customer "
-	// + " (restaurantID,name) VALUES ("+id+",'" + name + "')");
-	//
-	// rs.close();
-	// st.close();
-	// }catch(Exception e){
-	// System.out.println("Cant insert into customer table");
-	// }
-	// return id;
-	// }
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
+	}
+
+	public void destroy() {
+		super.destroy();
+	}
 }
