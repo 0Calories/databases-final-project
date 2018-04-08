@@ -9,7 +9,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <center><H1>Artist Fans!!!!</H1></center>
+    	<center><H1>Query Restaurants and Menus</H1></center>
         <p align="center">
           <font color="#002424" size="7">
              <u>Become a FAN</u>
@@ -20,6 +20,15 @@
                <u>From your favorite artists</u>
            </font>
         </p>
+        
+        <form action="Control" method="GET">
+            <p align="left">Restaurant Name
+               <input type="text" size="20" name="txtName">
+            </p>
+            <p align="left">
+                 <input type="radio" name="rdArtist" value="Caravaggio" checked>Caravaggio
+            </p>
+        </form>
 
        <form action="Control" method="POST">
             <p align="left">Your name:
@@ -55,5 +64,15 @@
        <form action="ActionName" method="POST">
        		<input type="submit" value="Login"/>
        </form>
+	      
+	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('menu.jsp')" />
+	   
+   		<script type="text/javascript">
+		 function openPage(pageURL)
+		 {
+		 window.location.href = pageURL;
+		 }
+		</script>
+
     </body>
 </html>
