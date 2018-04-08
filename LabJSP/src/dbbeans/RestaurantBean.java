@@ -65,6 +65,7 @@ public class RestaurantBean {
 			st.close();
 		} catch (Exception e) {
 			System.out.println("Cant read from customers table");
+			e.printStackTrace();
 		}
 		return id;
 	}
