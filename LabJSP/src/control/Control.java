@@ -74,7 +74,6 @@ public class Control extends HttpServlet
         processAction(request,response);
     }
     
-    
 
     
     public void destroy()
