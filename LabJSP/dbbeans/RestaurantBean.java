@@ -47,9 +47,8 @@ public class RestaurantBean {
 		return url;
 	}
 
-
-	public int existsRestaurant(String name, DataAccess db) {
-		int id = -1;
+	public String existsRestaurant(String name, DataAccess db) {
+		String id = "";
 		String temp;
 		connection = db.getConnection();
 
@@ -60,7 +59,7 @@ public class RestaurantBean {
 				temp = rs.getString("name");
 				temp = temp.trim();
 				if (temp.compareTo(name.trim()) == 0)
-					id = rs.getInt("restaurantID");
+					id = rs.getString("restaurant_id");
 			}
 			rs.close();
 			st.close();
@@ -69,6 +68,7 @@ public class RestaurantBean {
 		}
 		return id;
 	}
+	
 	//
 	// public int insertCustomer(String name, DataAccess db)
 	// {
