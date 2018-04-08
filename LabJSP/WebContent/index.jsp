@@ -66,7 +66,7 @@
        		<input type="submit" value="Login"/>
        </form>
 	      
-	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('menu.jsp')" />
+	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
 	   
    		<script type="text/javascript">
 		 function openPage(pageURL)
