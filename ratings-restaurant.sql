@@ -32,7 +32,7 @@ WHERE Rat.UserID = '$userIDSelect'
         WHERE Rat.RestaurantID=Rest.RestaurantID)))
 GROUP BY RL.firstOpenDate, Rest.name
 
--- I
+-- I Replace 'Indian' with restaurant type
 SELECT Rater.name
 FROM Rater
 INNER JOIN
@@ -43,7 +43,7 @@ INNER JOIN
   	 WHERE Restaurant.type = 'Indian' AND Rating.restaurant_id = Restaurant.restaurant_id)
   GROUP BY Rating.user_id, Rating.food) MaxRating ON MaxRating.user_id = Rater.user_id
 
--- J
+-- J Replace 'Indian' with restaurant type
 SELECT T.restaurant_id, T.name , T.total_rating
 FROM
 	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating, Restaurant.restaurant_id, Restaurant.name
