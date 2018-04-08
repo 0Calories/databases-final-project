@@ -8,77 +8,68 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+public class Control extends HttpServlet {
+	private DataAccess db;
+	private static final long serialVersionUID = 1L;
+	
+	public Control() {
+		
+	}
+	
+	private void processAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession s = request.getSession(true);
+		String restaurant_name = (String) request.getParameter("restName");
 
+		// Restaurant
+		RestaurantBean restaurantbean = new RestaurantBean();
 
+		db = new DataAccess();
+		db.openConnection();
 
-public class Control extends HttpServlet
-{
-    private DataAccess db;
+		String restaurantID = restaurantbean.existsRestaurant(restaurant_name, db);
+		System.out.println(restaurantID);
 
-    
-    private void processAction(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
-    {
-            HttpSession s = request.getSession(true);
-            String customer_name=(String)request.getParameter("txtName");
-//            String artist_name=(String)request.getParameter("rdArtist");
+		if (restaurantID.equals("")) {
+			// restaurantID = restaurantbean.insertCustomer(customer_name, db);
+		}
 
+		restaurantbean.setName(restaurant_name);
+		restaurantbean.setRestaurantID(String.valueOf(restaurantID));
 
-            //Restaurant
-            RestaurantBean restaurantbean = new RestaurantBean();
+		s.setAttribute("restaurantbean", restaurantbean);
 
+		// //LIKE ARTIST
+		// LikeArtistBean likeartistbean = new LikeArtistBean();
+		//
+		// if (!likeartistbean.existsLikeArtist(restaurantID, artist_name, db)){
+		// likeartistbean.insertLikeArtist(restaurantID, artist_name, db);
+		// }
+		//
+		// likeartistbean.setDataAccess(db);
+		//
+		// s.setAttribute("likeartistbean", likeartistbean );
+		// s.setAttribute("dataaccess",db);
+		// s.setAttribute("db",db);
 
-            db= new DataAccess();
-            db.openConnection();
+		/// SESION
+		s.setAttribute("key", "000");
+		s.setMaxInactiveInterval(1000);
 
-            int restaurantID = restaurantbean.existsRestaurant(customer_name, db);
+		db.closeConsult();
 
-            if (restaurantID == -1)
-            {
-//                restaurantID = restaurantbean.insertCustomer(customer_name, db);
-            }
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/menu.jsp");
+		rd.forward(request, response);
+	}
 
-            restaurantbean.setName(customer_name);
-            restaurantbean.setRestaurantID(String.valueOf(restaurantID));
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
+	}
+	
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		processAction(request, response);
+	}
 
-            s.setAttribute("restaurantbean", restaurantbean );
-
-
-//            //LIKE ARTIST
-//            LikeArtistBean likeartistbean = new LikeArtistBean();
-//            
-//            if (!likeartistbean.existsLikeArtist(restaurantID, artist_name, db)){
-//                likeartistbean.insertLikeArtist(restaurantID, artist_name, db);
-//            }
-//
-//            likeartistbean.setDataAccess(db);
-//            
-//            s.setAttribute("likeartistbean", likeartistbean );
-//            s.setAttribute("dataaccess",db);
-//            s.setAttribute("db",db);
-
-
-            ///SESION
-            s.setAttribute("key","000");
-            s.setMaxInactiveInterval(1000);
-
-
-            db.closeConsult();
-
-
-            RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/menu.jsp");
-            rd.forward(request,response);
- }
-
-    public void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
-    {
-        processAction(request,response);
-    }
-    
-    
-
-    
-    public void destroy()
-    {       
-        super.destroy();
-    }
+	public void destroy() {
+		super.destroy();
+	}
 }
