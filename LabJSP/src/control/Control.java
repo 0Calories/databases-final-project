@@ -17,7 +17,7 @@ public class Control extends HttpServlet {
 	
 	private void processAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession s = request.getSession(true);
-		String restaurant_name = (String) request.getParameter("restName");
+		String restaurant_name = (String) request.getParameter("restaurantInfo");
 
 		// Restaurant
 		RestaurantBean restaurantbean = new RestaurantBean();

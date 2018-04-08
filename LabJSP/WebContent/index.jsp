@@ -23,7 +23,7 @@
         
         <form action="Control" method="GET">
             <p align="left">Restaurant Name
-               <input type="text" size="20" name="restName">
+               <input type="text" size="20" name="restaurantInfo">
             </p>
             
             <p align="left">
@@ -74,6 +74,5 @@
 		 window.location.href = pageURL;
 		 }
 		</script>
-
     </body>
 </html>
