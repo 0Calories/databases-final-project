@@ -24,22 +24,27 @@
         </form>
         
          -->
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
-        </br>
+        <br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
         
         <center>
 		<input type="button" value="Restaurants and Menus Queries" onclick="openPage('RestaurantsAndMenus.jsp')" />
 		<input type="button" value="Ratings of Restaurants Queries" onclick="openPage('RatingsOfRestaurants.jsp')" />
+		<input type="button" value="Raters and Their Ratings Queries" onclick="openPage('RatersAndRatings.jsp')" />
+		
+		<br>
+		<br>
+		<br>
 		
 	    <input type="button" value="Add to DB" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
 	    <input type="button" value="Remove from DB" name="Add Restaurants" onclick="openPage('Remove.jsp')" />
