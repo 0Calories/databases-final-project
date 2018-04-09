@@ -10,6 +10,15 @@
     </servlet-mapping>
     
     <servlet>
+        <servlet-name>RestaurantRatingsController</servlet-name>
+        <servlet-class>control.RestaurantRatingsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RestaurantRatingsController</servlet-name>
+        <url-pattern>/RestaurantRatingsController</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
         <servlet-name>ActionName</servlet-name>
         <servlet-class>control.Add</servlet-class>
     </servlet>
