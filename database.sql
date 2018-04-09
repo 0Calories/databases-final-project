@@ -40,7 +40,7 @@ CREATE TABLE Rating (
 CREATE TABLE RatingItem (
   item_id VARCHAR(32) REFERENCES MenuItem(item_id) ON DELETE CASCADE,
   rating_item_date DATE,
-  user_id VARCHAR(32) REFERENCES Rater(user_id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES Rater(user_id) ON DELETE CASCADE,
   PRIMARY KEY (item_id, rating_item_date, user_id),
   rating INTEGER CHECK (rating >= 1 AND rating <= 5) DEFAULT 1,
   comment VARCHAR(255)
