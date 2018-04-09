@@ -100,6 +100,21 @@ public class RestaurantBean {
 	 return id;
 	 }
 	 
+	 public String getRestaurantID (String name, DataAccess db) {
+		 connection = db.getConnection();
+		 try {
+			st = connection.createStatement();
+			rs = st.executeQuery("SELECT restaurant_id FROM Restaurant WHERE '" + name + "' =name");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		 return null;
+		 
+		 
+	 }
+	 
 	 public String getRandomString(int length) {
 	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	        StringBuilder salt = new StringBuilder();
