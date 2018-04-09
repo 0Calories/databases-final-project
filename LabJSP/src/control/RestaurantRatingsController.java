@@ -63,7 +63,7 @@ public class RestaurantRatingsController extends HttpServlet {
 			request.getSession().setMaxInactiveInterval(5000);
 			db.closeConsult();
 
-			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/QueryHResults.jsp");
+			RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryHResults.jsp");
 			rd.forward(request, response);
 			
 		} catch (SQLException e) {
