@@ -2,6 +2,7 @@ package dbbeans;
 
 import connection.DataAccess;
 import java.sql.*;
+import java.util.Random;
 
 public class RestaurantBean {
 	private Connection connection;
@@ -74,32 +75,55 @@ public class RestaurantBean {
 		return results;
 	}
 	
-	//
-	// public int insertCustomer(String name, DataAccess db)
-	// {
-	// connection = db.getConnection();
-	// int id = 0;
-	//
-	// try {
-	// st = connection.createStatement();
-	//
-	// rs = st.executeQuery("SELECT max(restaurantID) as id FROM
-	// laboratories.customer");
-	// rs.next();
-	//
-	// int max_id = rs.getInt(1);
-	// id = max_id + 1;
-	//
-	// System.out.println("ID: "+id);
-	//
-	// st.executeUpdate("INSERT INTO laboratories.customer "
-	// + " (restaurantID,name) VALUES ("+id+",'" + name + "')");
-	//
-	// rs.close();
-	// st.close();
-	// }catch(Exception e){
-	// System.out.println("Cant insert into customer table");
-	// }
-	// return id;
-	// }
+	
+	 public String insertRestaurant (String name, String type, String URL, DataAccess db)
+	 {
+	 connection = db.getConnection();
+	 String id = getRandomString(8);
+	 
+	 try {
+		 st = connection.createStatement();
+		
+		 System.out.println("ID: "+id);
+		
+		 st.executeUpdate("INSERT INTO Restaurant "
+		 + "(restaurant_id, name, type, url) VALUES ('"+id+"','" + name + "','" + type + "','" + URL + "')");
+		
+		 rs.close();
+		 st.close();
+		 
+	 } catch(Exception e){
+		 
+		 System.out.println("Cant insert into customer table");
+	 }
+	 
+	 return id;
+	 }
+	 
+	 public String getRestaurantID (String name, DataAccess db) {
+		 connection = db.getConnection();
+		 try {
+			st = connection.createStatement();
+			rs = st.executeQuery("SELECT restaurant_id FROM Restaurant WHERE '" + name + "' =name");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		 
+		 return null;
+		 
+		 
+	 }
+	 
+	 public String getRandomString(int length) {
+	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	        StringBuilder salt = new StringBuilder();
+	        Random rnd = new Random();
+	        while (salt.length() < length) { // length of the random string.
+	            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+	            salt.append(SALTCHARS.charAt(index));
+	        }
+	        String saltStr = salt.toString();
+	        return saltStr;
+	 }
 }
