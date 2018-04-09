@@ -11,11 +11,11 @@
     
     <servlet>
         <servlet-name>ActionName</servlet-name>
-        <servlet-class>control.Login</servlet-class>
+        <servlet-class>control.Add</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ActionName</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>/ActionName</url-pattern>
     </servlet-mapping>
     
     <session-config>
