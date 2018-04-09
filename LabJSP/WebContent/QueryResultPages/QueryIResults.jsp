@@ -10,17 +10,15 @@
 if(resultSet != null){ %>
 
 <html>
-    <head><title>Query H Results</title></head>
+    <head><title>Query I Results</title></head>
     <BODY>
         <TABLE BORDER="1">
             <TR>
                 <TH>name</TH>
-                <TH>date</TH>
             </TR>
             <% while(resultSet.next()){ %>
             <TR>
                 <TD> <%= resultSet.getString(1) %></td>
-                <TD> <%= resultSet.getString(2) %></TD>
             </TR>
             <% } %>
         </TABLE>

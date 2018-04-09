@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Restaurants And Menus queries</title>
+<title>Restaurants And Menus Queries</title>
 </head>
 <body>
     	<center><H1>Query Ratings of Restaurants</H1></center>
@@ -77,7 +77,7 @@
         
         <form action="RestaurantRatingsController" method="GET">
         	
-            <p><input type="text" size="20" name="userID"></p>
+            <p>Enter User ID <input type="text" size="20" name="userID"></p>
             <p><input type="submit" name="cmdH" value="Get Restaurant Data"></p>
             
         </form>
@@ -88,7 +88,7 @@
         </i></p>  
         <form action="RestaurantRatingsController" method="GET">
         	
-            <p><input type="text" size="20" name="restaurantType"></p>
+            <p>Enter Restaurant Type <input type="text" size="20" name="restaurantType"></p>
             <p><input type="submit" name="cmdI" value="Get Restaurant Data"></p>
             
         </form>        
