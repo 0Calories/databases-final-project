@@ -15,6 +15,7 @@
         <p align="left"><i><strong>f)</strong>Find the total number of rating for each restaurant, for each rater. That is, the data should be grouped by the restaurant, the specific raters and the numeric ratings they have received.
             </i></p>
             
+        <!-- ========= QUERY F) ========= -->
         <%
 	        DataAccess db = new DataAccess();
 			db.openConnection();
@@ -41,12 +42,55 @@
             <% } %>
         </TABLE>
         
-        <form action="Control" method="POST">
+        <!-- ========= QUERY G) ========= -->
+        <%
+        	String queryG = "SELECT Restaurant.name, Restaurant.type, Location.phone_number " +
+        					"FROM Restaurant, Location " +
+        					"WHERE Restaurant.restaurant_id = Location.restaurant_id AND Restaurant.restaurant_id NOT IN " +
+        					"    (SELECT Rating.restaurant_id " +
+        					"    FROM Rating " +
+        					"    WHERE Rating.rating_date BETWEEN'2015/01/01' AND '2015/01/31')";
+        	resultSet = statement.executeQuery(queryG);
+        %>
+        
+        <p align="left"><i><strong>g)</strong>Display the details of the restaurants that have not been rated in January 2015. That is, you should display the name of the restaurant together with the phone number and the type of food.
+        </i></p>
+        
+        <TABLE BORDER="1">
+            <TR>
+                <TH>name</TH>
+                <TH>type</TH>
+                <TH>phone_number</TH>
+            </TR>
+            <% while(resultSet.next()){ %>
+            <TR>
+                <TD> <%= resultSet.getString(1) %></td>
+                <TD> <%= resultSet.getString(2) %></TD>
+                <TD> <%= resultSet.getString(3) %></TD>
+            </TR>
+            <% } %>
+        </TABLE>
+        
+        <!-- ========= QUERY H) ========= -->
+        <%
+        	String queryH = "SELECT Restaurant.name, Restaurant.type, Location.phone_number " +
+        					"FROM Restaurant, Location " +
+        					"WHERE Restaurant.restaurant_id = Location.restaurant_id AND Restaurant.restaurant_id NOT IN " +
+        					"    (SELECT Rating.restaurant_id " +
+        					"    FROM Rating " +
+        					"    WHERE Rating.rating_date BETWEEN'2015/01/01' AND '2015/01/31')";
+        	resultSet = statement.executeQuery(queryG);
+        %>
+        
+        <p align="left"><i><strong>h)</strong>Find the names and opening dates of the restaurants that obtained Staff rating that is lower than any rating given by rater X. Order your results by the dates of the ratings. (Here, X refers to any rater of your choice.)
+        </i></p>
+        
+        <form action="RestaurantRatingsController" method="GET">
         	
-               <input type="text" size="20" name="txtName">
-            </p>
-                <input type="submit" name="cmdFan" value="Become a Fan">
-            </p>
+            <p><input type="text" size="20" name="userID"></p>
+            <p><input type="submit" name="cmdH" value="Get Restaurant Data"></p>
+            <p><input type="submit" name="cmdI" value="Test button lmao xD"></p>
+            
         </form>
 </body>
 </html>
