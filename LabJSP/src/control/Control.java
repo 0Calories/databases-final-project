@@ -31,11 +31,7 @@ public class Control extends HttpServlet {
 
 		if (restaurantInfo[0].equals("")) {
 			System.out.println("No results found");
-			// restaurantID = restaurantbean.insertCustomer(customer_name, db);
 		}
-
-		//restaurantbean.setName(restaurant_name);
-		//restaurantbean.setRestaurantID(String.valueOf(restaurantID));
 
 		s.setAttribute("restaurantbean", restaurantbean);
 
