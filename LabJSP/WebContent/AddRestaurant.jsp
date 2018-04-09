@@ -11,6 +11,41 @@
     </head>
     <body>
         <center><H1>Choose an option</H1></center>
-        <h2 align = "left">Add Restaurant</h2>
+        <div style = "float : left; width: 50%; overflow: hidden;">
+	       	<h2>Add Restaurant</h2>
+	        <form action="ActionName" method="POST">
+	            <p>Restaurant Name
+	               <input type="text" size="20" name="restaurantName">
+	            </p>
+	            <p>Restaurant Type
+	               <input type="text" size="20" name="restaurantType">
+	            </p>
+	            <p>Restaurant URL
+	               <input type="text" size="20" name="restaurantURL">
+	            </p>
+	            
+	            <p align="left">
+	                <input type="submit" name="cmdRest" value="Add Restaurant">
+	            </p>
+	        </form>
+        </div>
+        <div style = "overflow: hidden; padding-right: 10%">
+        	<h2>Add Rater</h2>
+	        <form action="ActionName" method="POST">
+	            <p>Rater Name
+	               <input type="text" size="20" name="raterName">
+	            </p>
+	            <p>Rater Type
+	               <input type="text" size="20" name="raterType">
+	            </p>
+	            <p>Rater Email
+	               <input type="text" size="20" name="raterEmail">
+	            </p>
+	            
+	            <p>
+	                <input type="submit" name="cmdRest" value="Add Rater">
+	            </p>
+	        </form>
+        </div>
      </body>
 </html>
