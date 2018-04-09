@@ -92,7 +92,7 @@ public class RestaurantBean {
 		return results;
 	}
 	
-	public String[][] getMenuItems(String restaurant_id, DataAccess db) {
+	public ResultSet getMenuItems(String restaurant_id, DataAccess db) {
 		
 		connection = db.getConnection();
 		try {
@@ -101,7 +101,7 @@ public class RestaurantBean {
 			rs = st.executeQuery(qry);
 			
 			int c=0;
-			while (rs.next()) {
+			/*while (rs.next()) {
 				getMenuItems_item_id[c] = rs.getString("item_id");
 				getMenuItems_name[c] = rs.getString("name");
 				getMenuItems_type[c] = rs.getString("type");
@@ -109,15 +109,46 @@ public class RestaurantBean {
 				getMenuItems_description[c] = rs.getString("description");
 				getMenuItems_price[c] = rs.getString("price");
 				c++;
-			}
+			}*/
 		} catch (Exception e) {
 			System.out.println("Cant read from customers table");
 			e.printStackTrace();
 		}
 		String[][] results = {getMenuItems_item_id, getMenuItems_name, getMenuItems_type, getMenuItems_category, getMenuItems_description, getMenuItems_price};
-		return results;
+		return rs;
 	}
 	
+	public ResultSet getMostExpensive(String restaurant_id, DataAccess db) {
+		
+		connection = db.getConnection();
+		try {
+			st = connection.createStatement();
+			String qry = "SELECT menu.name, menu.price, loc.manager_name, loc.hour_open, rest.url" +
+					" FROM MenuItem menu " +
+					"LEFT JOIN Restaurant rest ON menu.restaurant_id=rest.restaurant_id " +
+					"LEFT JOIN Location loc ON menu.restaurant_id=loc.restaurant_id " +
+					"WHERE menu.restaurant_id = \'" + restaurant_id + "\' " +
+							"AND price = (SELECT max(price) FROM MenuItem WHERE restaurant_id=\'" + restaurant_id + "\');";
+			System.out.println(qry);
+			rs = st.executeQuery(qry);
+			
+			int c=0;
+			/*while (rs.next()) {
+				getMenuItems_item_id[c] = rs.getString("item_id");
+				getMenuItems_name[c] = rs.getString("name");
+				getMenuItems_type[c] = rs.getString("type");
+				getMenuItems_category[c] = rs.getString("category");
+				getMenuItems_description[c] = rs.getString("description");
+				getMenuItems_price[c] = rs.getString("price");
+				c++;
+			}*/
+		} catch (Exception e) {
+			System.out.println("Cant read from customers table");
+			e.printStackTrace();
+		}
+		String[][] results = {getMenuItems_item_id, getMenuItems_name, getMenuItems_type, getMenuItems_category, getMenuItems_description, getMenuItems_price};
+		return rs;
+	}
 	
 	 public String insertRestaurant (String name, String type, String URL, DataAccess db)
 	 {
