@@ -73,7 +73,7 @@
         -->
 	      
 	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
-	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('RatingsOfRestaurants.jsp')" />
+	    <input type="button" value="Ratings of Restaurants" name="Ratings of Restaurants" onclick="openPage('RatingsOfRestaurants.jsp')" />
 	   
    		<script type="text/javascript">
 		 function openPage(pageURL)
