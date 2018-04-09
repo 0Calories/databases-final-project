@@ -41,15 +41,41 @@
 	            <p>Rater Email
 	               <input type="text" size="20" name="raterEmail">
 	            </p>
-	            <p>Rater Join Date
+	            <p>Rater Join Date (yyyy-mm-dd)
 	               <input type="text" size="20" name="raterJoinDate">
 	            </p>
-	            <p>Rater Reputation
+	            <p>Rater Reputation (1-5)
 	               <input type="number" name="raterReputation" min="1" max="5">
 	            </p>
 	            
 	            <p>
 	                <input type="submit" name="cmdRest" value="Add Rater">
+	            </p>
+	        </form>
+        </div>
+        <div style = "overflow: hidden; padding-right: 10%">
+        	<h2>Add Menu Item</h2>
+	        <form action="ActionName" method="POST">
+	            <p>Menu Item Name
+	               <input type="text" size="20" name="menuItemName">
+	            </p>
+	            <p>Menu Item Type
+	               <input type="text" size="20" name="menuItemType">
+	            </p>
+	            <p>Menu Item Category
+	               <input type="text" size="20" name="menuItemCategory">
+	            </p>
+	            <p>Menu Item Description
+	               <input type="text" size="50" name="menuItemDescription">
+	            </p>
+	            <p>Menu Item Price (*.dd)
+	               <input type="text" size="20" name="menuItemPrice">
+	            </p>
+	            <p>Restaurant ID
+	               <input type="text" size="20" name="menuItemRestaurantID">
+	            </p>
+	            <p>
+	                <input type="submit" name="cmdRest" value="Add Menu Item">
 	            </p>
 	        </form>
         </div>
