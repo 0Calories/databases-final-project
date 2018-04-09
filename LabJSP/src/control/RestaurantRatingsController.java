@@ -19,7 +19,6 @@ public class RestaurantRatingsController extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession s = request.getSession(true);
-		//RestaurantBean restaurantbean = new RestaurantBean();
 
 		db = new DataAccess();
 		db.openConnection();
@@ -36,58 +35,30 @@ public class RestaurantRatingsController extends HttpServlet {
 			String query = null;
 			
 			// Check which button was selected
-			if (request.getParameter("cmdH") != null) {
-				System.out.println("cmdH function selected");
-				selectedCommand = "cmdH";
-				String userID = request.getParameter("userID");
-				query = "SELECT Rest.Name, RL.first_open_date AS date " + 
-								"FROM Rating Rat " + 
-								"LEFT JOIN Restaurant Rest ON Rat.restaurant_id=Rest.restaurant_id " +
-								"LEFT JOIN Location RL ON RL.restaurant_id=Rat.restaurant_id " + 
-								"WHERE Rat.user_id = " + userID + " " +
-								"      AND ((Rat.price>( SELECT AVG(Rat.staff) " +
-								"        FROM Rating Rat, Restaurant Rest " +
-								"        WHERE Rat.restaurant_id=Rest.restaurant_id)) " +
-								"      OR (Rat.mood>( SELECT AVG(Rat.staff) " +
-								"        FROM Rating Rat, Restaurant Rest " + 
-								"        WHERE Rat.restaurant_id=Rest.restaurant_id)) " +
-								"      OR (Rat.food>( SELECT AVG(Rat.staff) " +
-								"        FROM Rating Rat, Restaurant Rest " +
-								"        WHERE Rat.restaurant_id=Rest.restaurant_id)) " +
-								"      OR (Rat.staff>( SELECT AVG(Rat.staff) " +
-								"        FROM Rating Rat, Restaurant Rest " +
-								"        WHERE Rat.restaurant_id=Rest.restaurant_id))) " +
-								"GROUP BY RL.first_open_date, Rest.name";
+			if (request.getParameter("cmdM") != null) {
+				System.out.println("cmdM function selected");
+				selectedCommand = "cmdM";
+				String restaurantID = request.getParameter("restaurantID");
+				query = "SELECT Rater.name, Rater.reputation, comment, items.name, items.price FROM " +
+						"(SELECT * FROM RatingItem LEFT JOIN MenuItem ON RatingItem.item_id = MenuItem.item_id) items " +
+						"JOIN " +
+						"	(SELECT user_id AS most_frequent_userid, COUNT(user_id) AS num_ratings " +
+						"	FROM RatingItem LEFT JOIN MenuItem ON RatingItem.item_id = MenuItem.item_id " +
+						"	WHERE restaurant_id = '" + restaurantID + "' " +
+						"	GROUP BY user_id " +
+						"	ORDER BY num_ratings DESC " +
+						"	LIMIT 1) most_frequent_rater " +
+						"ON  items.user_id = most_frequent_rater.most_frequent_userid " +
+						"LEFT JOIN Rater ON Rater.user_id = most_frequent_rater.most_frequent_userid";
 				
-			} else if (request.getParameter("cmdI") != null) {
-				System.out.println("cmdI function selected");
-				selectedCommand = "cmdI";
-				String restaurantType = request.getParameter("restaurantType");
-				query = "SELECT Rater.name " + 
-								"FROM Rater " +
-								"INNER JOIN " +
-								"  (SELECT Rating.food, Rating.user_id " +
-								"  FROM Rating, Restaurant " +
-								"  WHERE Restaurant.type = '" + restaurantType + "' AND Rating.restaurant_id = Restaurant.restaurant_id AND Rating.food IN " +
-								"  	(SELECT MAX(Rating.food) FROM Rating, Restaurant " +
-								"  	 WHERE Restaurant.type = 'Indian' AND Rating.restaurant_id = Restaurant.restaurant_id) " +
-								"  GROUP BY Rating.user_id, Rating.food) MaxRating ON MaxRating.user_id = Rater.user_id";
-			} else if (request.getParameter("cmdJ") != null) {
-				System.out.println("cmdJ function selected");
-				selectedCommand = "cmdJ";
-				String restaurantType = request.getParameter("restaurantType");
-				query = "SELECT T.restaurant_id, T.name , T.total_rating " +
-								"FROM " +
-								"	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating, Restaurant.restaurant_id, Restaurant.name " +
-								"	FROM Rater, Rating, Restaurant " +
-								"	WHERE Rater.user_id = Rating.user_id AND Restaurant.restaurant_id = Rating.restaurant_id " +
-								"	GROUP BY Restaurant.restaurant_id) AS T " +
-								"WHERE T.total_rating < " +
-								"	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating " +
-								"	FROM Rater " +
-								"	INNER JOIN Rating ON Rater.user_id = Rating.user_id " +
-								"	INNER JOIN Restaurant ON Restaurant.restaurant_id = Rating.restaurant_id AND Restaurant.type = '" + restaurantType + "' " +
-								"	GROUP BY Restaurant.restaurant_id)";
+			} else if (request.getParameter("cmdN") != null) {
+				System.out.println("cmdN function selected");
+				selectedCommand = "cmdN";
+				query = "";
+			} else if (request.getParameter("cmdO") != null) {
+				System.out.println("cmdO function selected");
+				selectedCommand = "cmdO";
+				query = "";
 			}
 			
 			resultSet = statement.executeQuery(query);
@@ -98,12 +69,14 @@ public class RestaurantRatingsController extends HttpServlet {
 			db.closeConsult();
 
 			RequestDispatcher rd = null;
-			if (selectedCommand.equals("cmdH")) {
-				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryHResults.jsp");
-			} else if (selectedCommand.equals("cmdI")) {
-				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryIResults.jsp");
-			} else if (selectedCommand.equals("cmdJ")) {
-				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryJResults.jsp");
+			
+			// Query O is not implemented yet :(
+			if (selectedCommand.equals("cmdM")) {
+				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryMResults.jsp");
+			} else if (selectedCommand.equals("cmdN")) {
+				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryNResults.jsp");
+			} else if (selectedCommand.equals("cmdO")) {
+				rd = this.getServletContext().getRequestDispatcher("/error.jsp");
 			}
 			
 			rd.forward(request, response);
