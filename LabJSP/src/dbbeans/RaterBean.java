@@ -112,5 +112,22 @@ public class RaterBean {
 	 
 	 return id;
 	 }
+	 
+	 public void removeRater(String raterID, DataAccess db) {
+		 connection = db.getConnection();
+		 
+		 try {
+			 st = connection.createStatement();
+			
+			 st.executeUpdate("DELETE FROM Rater "
+			 + "WHERE user_id = '" + raterID + "'");
+			
+			 rs.close();
+			 st.close();
+			 
+		 } catch(Exception e){
+			 System.out.println(e);
+		 }
+	 }
 	
 }

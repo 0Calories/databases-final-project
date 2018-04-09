@@ -115,6 +115,23 @@ public class MenuItemBean {
 	 return id;
 	 }
 	
+	 public void removeMenuItem(String menuItemID, DataAccess db) {
+		 connection = db.getConnection();
+		 
+		 try {
+			 st = connection.createStatement();
+			
+			 st.executeUpdate("DELETE FROM MenuItem "
+			 + "WHERE item_id = '" + menuItemID + "'");
+			
+			 rs.close();
+			 st.close();
+			 
+		 } catch(Exception e){
+			 System.out.println(e);
+		 }
+	 }
+	
 	 public String getRandomString(int length) {
 	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	        StringBuilder salt = new StringBuilder();

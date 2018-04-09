@@ -115,6 +115,23 @@ public class RestaurantBean {
 		 
 	 }
 	 
+	 public void removeRestaurant(String restaurantID, DataAccess db) {
+		 connection = db.getConnection();
+		 
+		 try {
+			 st = connection.createStatement();
+			
+			 st.executeUpdate("DELETE FROM Restaurant "
+			 + "WHERE restaurant_id = '" + restaurantID + "'");
+			
+			 rs.close();
+			 st.close();
+			 
+		 } catch(Exception e){
+			 System.out.println(e);
+		 }
+	 }
+	 
 	 public String getRandomString(int length) {
 	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 	        StringBuilder salt = new StringBuilder();
