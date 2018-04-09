@@ -9,7 +9,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-    	<input type="button" value="Go_To_RestaurantsAndMenus" name="Go_To_RestaurantsAndMenus" onclick="openPage('RestaurantsAndMenus.jsp')" />
+ 		<p align="left">
+ 			<input type="button" value="Go_To_RestaurantsAndMenus" onclick="openPage('RestaurantsAndMenus.jsp')" />
+ 		</p>
+    	
     	<center><H1>Query Restaurants and menus</H1></center>
         <p align="center">
           <font color="#002424" size="7">

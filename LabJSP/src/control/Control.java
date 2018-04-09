@@ -23,6 +23,8 @@ public class Control extends HttpServlet {
 		db = new DataAccess();
 		db.openConnection();
 		
+		System.out.println(request.getParameter("cmdRest"));
+		
 		if(request.getParameter("cmdRest").equals("Get Restaurant")) {
 			String restaurant_name = (String) request.getParameter("restaurantInfo");
 
@@ -37,7 +39,7 @@ public class Control extends HttpServlet {
 		}
 		
 		//u can put something here
-		else if(request.getParameter("cmdRest").equals("GetAllRestaurants")) {
+		else if(request.getParameter("cmdRest").equals("Go_To_RestaurantsAndMenus")) {
 			System.out.println("HERE");
 		}
 
