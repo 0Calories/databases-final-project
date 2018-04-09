@@ -71,17 +71,7 @@
             <% } %>
         </TABLE>
         
-        <!-- ========= QUERY H) ========= -->
-        <%
-        	String queryH = "SELECT Restaurant.name, Restaurant.type, Location.phone_number " +
-        					"FROM Restaurant, Location " +
-        					"WHERE Restaurant.restaurant_id = Location.restaurant_id AND Restaurant.restaurant_id NOT IN " +
-        					"    (SELECT Rating.restaurant_id " +
-        					"    FROM Rating " +
-        					"    WHERE Rating.rating_date BETWEEN'2015/01/01' AND '2015/01/31')";
-        	resultSet = statement.executeQuery(queryG);
-        %>
-        
+        <!-- ========= QUERY H) ========= -->        
         <p align="left"><i><strong>h)</strong>Find the names and opening dates of the restaurants that obtained Staff rating that is lower than any rating given by rater X. Order your results by the dates of the ratings. (Here, X refers to any rater of your choice.)
         </i></p>
         
@@ -89,7 +79,27 @@
         	
             <p><input type="text" size="20" name="userID"></p>
             <p><input type="submit" name="cmdH" value="Get Restaurant Data"></p>
-            <p><input type="submit" name="cmdI" value="Test button lmao xD"></p>
+            
+        </form>
+        
+        
+        <!-- ========= QUERY I) ========= -->   
+        <p align="left"><i><strong>h)</strong>List the details of the Type Y restaurants that obtained the highest Food rating. Display the restaurant name together with the name(s) of the rater(s) who gave these ratings. (Here, Type Y refers to any restaurant type of your choice, e.g. Indian or Burger.)
+        </i></p>  
+        <form action="RestaurantRatingsController" method="GET">
+        	
+            <p><input type="text" size="20" name="restaurantType"></p>
+            <p><input type="submit" name="cmdI" value="Get Restaurant Data"></p>
+            
+        </form>        
+        
+        <!-- ========= QUERY J) ========= -->     
+        <p align="left"><i><strong>j)</strong>Provide a query to determine whether Type Y restaurants are “more popular” than other restaurants. (Here, Type Y refers to any restaurant type of your choice, e.g. Indian or Burger.) 
+        </i></p>
+        <form action="RestaurantRatingsController" method="GET">
+        	
+            <p><input type="text" size="20" name="restaurantType"></p>
+            <p><input type="submit" name="cmdJ" value="Get Restaurant Type Popularity"></p>
             
         </form>
 </body>

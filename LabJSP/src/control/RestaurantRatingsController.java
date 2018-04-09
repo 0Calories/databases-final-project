@@ -56,6 +56,8 @@ public class RestaurantRatingsController extends HttpServlet {
 				resultSet = statement.executeQuery(query);
 			} else if (request.getParameter("cmdI") != null) {
 				System.out.println("cmdI function selected");
+			} else if (request.getParameter("cmdJ") != null) {
+				System.out.println("cmdJ function selected");
 			}
 			
 			// Store the resultSet so the jsp page can access it later

@@ -9,19 +9,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-    	<input type="button" value="Go_To_RestaurantsAndMenus" onclick="openPage('RestaurantsAndMenus.jsp')" />
-    	<center><H1>Query Restaurants and menus</H1></center>
-        <p align="center">
-          <font color="#002424" size="7">
-             <u>Become a FAN</u>
-          </font>
-        </p>
-        <p align="center">
-           <font color="#002424" size="7">
-               <u>From your favorite artists</u>
-           </font>
-        </p>
+    	<center><H1>Databases Final Project</H1></center>
+    	<center><H3>Presented By Ashwin Anand, Quang-Tri Do, and Taewan Kang</H3></center>
         
+        <!-- 
         <form action="Control" method="GET">
             <p align="left">Restaurant Name
                <input type="text" size="20" name="restaurantInfo">
@@ -31,55 +22,33 @@
                 <input type="submit" name="cmdRest" value="Get Restaurant">
             </p>
         </form>
-
-	<!--   
-       <form action="Control" method="POST">
-            <p align="left">Your name:
-               <input type="text" size="20" name="txtName">
-            </p>
-            <p align="left">
-                 <input type="radio" name="rdArtist" value="Caravaggio" checked>Caravaggio
-            </p>
-            <p align="left">
-             <input type="radio" name="rdArtist" value="Picasso">Picasso
-            </p>
-            <p align="left">
-               <input type="radio" name="rdArtist" value="Leonardo">Leonardo
-            </p>
-            <p align="left">
-               <input type="radio" name="rdArtist" value="Michelangelo">Michelangelo
-            </p>
-            <p align="left">
-              <input type="radio" name="rdArtist" value="Josefa">Josefa
-            </p>
-            <p align="left">
-              <input type="radio" name="rdArtist" value="Hans Hofmann">Hans Hofmann
-            </p>
-            <p align="left">
-              <input type="radio" name="rdArtist" value="John">John
-            </p>
-
-            <p align="left">
-                <input type="submit" name="cmdFan" value="Become a Fan">
-            </p>
-        </form>
         
-       
-    
-       <form action="ActionName" method="POST">
-       		<input type="submit" value="Login"/>
-       </form>
-       
-        -->
-	      
+         -->
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        </br>
+        
+        <center>
+		<input type="button" value="Restaurants and Menus Queries" onclick="openPage('RestaurantsAndMenus.jsp')" />
+		<input type="button" value="Ratings of Restaurants Queries" onclick="openPage('RatingsOfRestaurants.jsp')" />
+		
 	    <input type="button" value="Add to DB" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
 	    <input type="button" value="Remove from DB" name="Add Restaurants" onclick="openPage('Remove.jsp')" />
-	    <input type="button" value="Ratings of Restaurants" name="Ratings of Restaurants" onclick="openPage('RatingsOfRestaurants.jsp')" />
-	   
+	   	</center>
+	   	
    		<script type="text/javascript">
 		 function openPage(pageURL)
 		 {
-		 window.location.href = pageURL;
+		 	window.location.href = pageURL;
 		 }
 		</script>
     </body>
