@@ -12,6 +12,21 @@ public class RestaurantBean {
 	private String restaurantID;
 	private String type;
 	private String url;
+	String tempName;
+	String location_id;
+	String first_open_date;
+	String manager_name;
+	String phone_number;
+	String street_address;
+	String hour_open;
+	String hour_close;
+	
+	String[] getMenuItems_name = new String[999];
+	String[] getMenuItems_type = new String[999];
+	String[] getMenuItems_item_id = new String[999];
+	String[] getMenuItems_category = new String[999];
+	String[] getMenuItems_description = new String[999];
+	String[] getMenuItems_price = new String[999];
 
 	public RestaurantBean() {
 	}
@@ -48,30 +63,58 @@ public class RestaurantBean {
 		return url;
 	}
 
-	public String[] getRestaurantInfo(String name, DataAccess db) {
-		String tempName;
+	public String[] getRestaurantInfo(String restaurant_id, DataAccess db) {
+		
 		connection = db.getConnection();
 
 		try {
 			st = connection.createStatement();
-			rs = st.executeQuery("SELECT * FROM Restaurant");
+			String qry = "SELECT * FROM Restaurant rest LEFT JOIN Location loc ON rest.restaurant_id=loc.restaurant_id WHERE rest.restaurant_id=\'" + restaurant_id + "\';";
+			rs = st.executeQuery(qry);
 			while (rs.next()) {
-				tempName = rs.getString("name").trim();
-				if (tempName.compareTo(name.trim()) == 0) {
-					this.name = tempName;
+					name = rs.getString("name");
 					restaurantID = rs.getString("restaurant_id");
 					type = rs.getString("type");
 					url = rs.getString("url");
+					location_id = rs.getString("location_id");
+					first_open_date = rs.getString("first_open_date");
+					manager_name = rs.getString("manager_name");
+					phone_number = rs.getString("phone_number");
+					street_address = rs.getString("street_address");
+					hour_open = rs.getString("hour_open");
+					hour_close = rs.getString("hour_close");
 				}
-					
-			}
-			rs.close();
-			st.close();
 		} catch (Exception e) {
 			System.out.println("Cant read from customers table");
 			e.printStackTrace();
 		}
-		String[] results = {this.name, restaurantID, type, url};
+		String[] results = {name, restaurantID, type, url, location_id, first_open_date, manager_name, phone_number, street_address, hour_open, hour_close};
+		return results;
+	}
+	
+	public String[][] getMenuItems(String restaurant_id, DataAccess db) {
+		
+		connection = db.getConnection();
+		try {
+			st = connection.createStatement();
+			String qry = "SELECT * FROM MenuItem WHERE restaurant_id=\'" + restaurant_id + "\' ORDER BY category;";
+			rs = st.executeQuery(qry);
+			
+			int c=0;
+			while (rs.next()) {
+				getMenuItems_item_id[c] = rs.getString("item_id");
+				getMenuItems_name[c] = rs.getString("name");
+				getMenuItems_type[c] = rs.getString("type");
+				getMenuItems_category[c] = rs.getString("category");
+				getMenuItems_description[c] = rs.getString("description");
+				getMenuItems_price[c] = rs.getString("price");
+				c++;
+			}
+		} catch (Exception e) {
+			System.out.println("Cant read from customers table");
+			e.printStackTrace();
+		}
+		String[][] results = {getMenuItems_item_id, getMenuItems_name, getMenuItems_type, getMenuItems_category, getMenuItems_description, getMenuItems_price};
 		return results;
 	}
 	
@@ -100,17 +143,22 @@ public class RestaurantBean {
 	 return id;
 	 }
 	 
-	 public String getRestaurantID (String name, DataAccess db) {
+	 public String getRestaurantID (String restaurant_name, DataAccess db) {
 		 connection = db.getConnection();
+		 String restaurant_id = null;
 		 try {
 			st = connection.createStatement();
-			rs = st.executeQuery("SELECT restaurant_id FROM Restaurant WHERE '" + name + "' =name");
+			String qry = "SELECT restaurant_id FROM Restaurant WHERE \'" + restaurant_name + "\' =name";
+			rs = st.executeQuery(qry);
+			while(rs.next()) {
+				restaurant_id = rs.getString("restaurant_id");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		 
-		 return null;
+		 return restaurant_id;
 		 
 		 
 	 }
@@ -131,6 +179,10 @@ public class RestaurantBean {
 			 System.out.println(e);
 		 }
 	 }
+	 
+	 
+	 
+	 
 	 
 	 public String getRandomString(int length) {
 	        String SALTCHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";

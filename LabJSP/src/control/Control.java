@@ -1,5 +1,6 @@
 package control;
 
+import java.sql.*;
 import dbbeans.*;
 
 import connection.DataAccess;
@@ -23,23 +24,43 @@ public class Control extends HttpServlet {
 		db = new DataAccess();
 		db.openConnection();
 		
-		System.out.println(request.getParameter("cmdRest"));
-		
-		if(request.getParameter("cmdRest").equals("Get Restaurant")) {
-			String restaurant_name = (String) request.getParameter("restaurantInfo");
-
-			String[] restaurantInfo = restaurantbean.getRestaurantInfo(restaurant_name, db);
-			for (int i = 0; i < restaurantInfo.length; i++)
-				System.out.println(restaurantInfo[i]);
-
-			if (restaurantInfo[0].equals("")) {
-				System.out.println("No results found");
-				// restaurantID = restaurantbean.insertCustomer(customer_name, db);
-			}
+		if(request.getParameter("cmdRest").equals("Query a")) {
+			String restaurant_name = request.getParameter("Query a Dropdown");
+			
+			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
+			String[] restaurantInfo = restaurantbean.getRestaurantInfo(restaurant_id, db);
+			
+			request.getSession(true).setAttribute("ArrayQueryA", restaurantInfo);
+			request.getRequestDispatcher("RestaurantsAndMenus.jsp").forward(request, response);
 		}
 		
-		//u can put something here
-		else if(request.getParameter("cmdRest").equals("Go_To_RestaurantsAndMenus")) {
+		else if(request.getParameter("cmdRest").equals("Query b")) {
+			String restaurant_name = request.getParameter("Query b Dropdown");
+			
+			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
+			String[][] menuInfo = restaurantbean.getMenuItems(restaurant_id, db);
+			
+			for(int i=0;i<menuInfo.length;i++){
+				for(int j=0;j<menuInfo[i].length;j++) {
+					if(menuInfo[i][j]!=null) {
+						System.out.println(menuInfo[i][j]);
+					}
+				}
+			}
+			
+			request.getSession(true).setAttribute("ArrayQueryB", menuInfo);
+			request.getRequestDispatcher("RestaurantsAndMenus.jsp").forward(request, response);
+		}
+		
+		else if(request.getParameter("cmdRest").equals("Query c")) {
+			System.out.println(request.getParameter("Query c Dropdown"));
+		}
+		
+		else if(request.getParameter("cmdRest").equals("Query d")) {
+			System.out.println(request.getParameter("Query d Dropdown"));
+		}
+		
+		else if(request.getParameter("cmdRest").equals("Query e")) {
 			System.out.println("HERE");
 		}
 
@@ -63,9 +84,6 @@ public class Control extends HttpServlet {
 		s.setMaxInactiveInterval(1000);
 
 		db.closeConsult();
-
-		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/menu.jsp");
-		rd.forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
