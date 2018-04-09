@@ -6,7 +6,7 @@ CREATE TABLE Restaurant (
 );
 
 CREATE TABLE Rater (
-  user_id VARCHAR(32) PRIMARY KEY,
+  user_id INTEGER PRIMARY KEY,
   email VARCHAR(32),
   name VARCHAR(32),
   join_date DATE,
@@ -26,7 +26,7 @@ CREATE TABLE MenuItem (
 );
 
 CREATE TABLE Rating (
-  user_id VARCHAR(32) REFERENCES Rater(user_id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES Rater(user_id) ON DELETE CASCADE,
   rating_date DATE,
   PRIMARY KEY (user_id, rating_date),
   price INTEGER CHECK (price >= 1 AND price <= 5) DEFAULT 1,
