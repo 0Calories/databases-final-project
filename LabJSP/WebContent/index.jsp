@@ -32,6 +32,7 @@
             </p>
         </form>
 
+	<!--   
        <form action="Control" method="POST">
             <p align="left">Your name:
                <input type="text" size="20" name="txtName">
@@ -62,12 +63,17 @@
                 <input type="submit" name="cmdFan" value="Become a Fan">
             </p>
         </form>
+        
+       
     
        <form action="ActionName" method="POST">
        		<input type="submit" value="Login"/>
        </form>
+       
+        -->
 	      
 	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
+	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('RatingsOfRestaurants.jsp')" />
 	   
    		<script type="text/javascript">
 		 function openPage(pageURL)
