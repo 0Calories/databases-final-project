@@ -86,7 +86,7 @@
         </form>
         
         <!-- ========= QUERY N) ========= -->
-        <p align="left"><i><strong>n)</strong>Find the names and emails of all raters who gave ratings that are lower than that of a rater with a name called John, in terms of the combined rating of Price, Food, Mood and Staff.
+        <p align="left"><i><strong>n)</strong>*NOT IMPLEMENTED* Find the names and emails of all raters who gave ratings that are lower than that of a rater with a name called John, in terms of the combined rating of Price, Food, Mood and Staff.
         </i></p>
         
         <form action="RestaurantRatingsController" method="GET">
@@ -95,6 +95,45 @@
             <p><input type="submit" name="cmdN" value="Get Raters"></p>
             
         </form>
+        
+        <!-- ========= QUERY O) ========= -->
+        <p align="left"><i><strong>o)</strong>Find the names, types and emails of the raters that provide the most diverse ratings. Display this information together with the restaurants names and the ratings. For example, Jane Doe may have rated the Food at the Imperial Palace restaurant as a 1 on 1 January 2015, as a 5 on 15 January 2015, and a 3 on 4 February 2015. Clearly, she changes her mind quite often.
+        </i></p>
+        <%
+	        db = new DataAccess();
+			db.openConnection();
+        	connection = db.getConnection();
+        	statement = connection.createStatement();
+        	String queryO = "SELECT  R.name ,R.type , R.email, Res.name, Ra.price , Ra.food, Ra.mood, Ra.staff, Ra.comments FROM Rater R, Rating Ra, Restaurant Res WHERE R.user_id = Ra.user_id AND Ra.restaurant_id = Res.restaurant_id AND R.user_id = any (SELECT jende.uid FROM (SELECT R.user_id uid, Ra.restaurant_id, COUNT(*) AS cnt FROM Rater R , Rating Ra WHERE R.user_id = Ra.user_id GROUP BY Ra.restaurant_id , Ra.user_id , R.user_id HAVING  COUNT(*)  > 2 ORDER BY cnt DESC, Ra.restaurant_id) AS jende ) ORDER BY R.name, Res.name";
+        	resultSet = statement.executeQuery(queryO);
+        %>
+        
+        <TABLE BORDER="1">
+            <TR>
+                <TH>name</TH>
+                <TH>type</TH>
+                <TH>email</TH>
+                <TH>name</TH>
+                <TH>price</TH>
+                <TH>food</TH>
+                <TH>mood</TH>
+                <TH>staff</TH>
+                <TH>comments</TH>
+            </TR>
+            <% while(resultSet.next()){ %>
+            <TR>
+                <TD> <%= resultSet.getString(1) %></td>
+                <TD> <%= resultSet.getString(2) %></TD>
+                <TD> <%= resultSet.getString(3) %></TD>
+                <TD> <%= resultSet.getString(4) %></TD>
+                <TD> <%= resultSet.getString(5) %></TD>
+                <TD> <%= resultSet.getString(6) %></TD>
+                <TD> <%= resultSet.getString(7) %></TD>
+                <TD> <%= resultSet.getString(8) %></TD>
+                <TD> <%= resultSet.getString(9) %></TD>
+            </TR>
+            <% } %>
+        </TABLE>
   
 </body>
 </html>

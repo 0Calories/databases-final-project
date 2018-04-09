@@ -55,11 +55,7 @@ public class RestaurantRatingsController extends HttpServlet {
 				System.out.println("cmdN function selected");
 				selectedCommand = "cmdN";
 				query = "";
-			} else if (request.getParameter("cmdO") != null) {
-				System.out.println("cmdO function selected");
-				selectedCommand = "cmdO";
-				query = "";
-			}
+			} 
 			
 			resultSet = statement.executeQuery(query);
 			
@@ -70,14 +66,12 @@ public class RestaurantRatingsController extends HttpServlet {
 
 			RequestDispatcher rd = null;
 			
-			// Query O is not implemented yet :(
+			// Query N is not implemented yet :(
 			if (selectedCommand.equals("cmdM")) {
 				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryMResults.jsp");
 			} else if (selectedCommand.equals("cmdN")) {
 				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryNResults.jsp");
-			} else if (selectedCommand.equals("cmdO")) {
-				rd = this.getServletContext().getRequestDispatcher("/error.jsp");
-			}
+			} 
 			
 			rd.forward(request, response);
 			
