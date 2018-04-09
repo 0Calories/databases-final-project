@@ -72,7 +72,8 @@
        
         -->
 	      
-	    <input type="button" value="Add" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
+	    <input type="button" value="Add to DB" name="Add Restaurants" onclick="openPage('AddRestaurant.jsp')" />
+	    <input type="button" value="Remove from DB" name="Add Restaurants" onclick="openPage('Remove.jsp')" />
 	    <input type="button" value="Ratings of Restaurants" name="Ratings of Restaurants" onclick="openPage('RatingsOfRestaurants.jsp')" />
 	   
    		<script type="text/javascript">
