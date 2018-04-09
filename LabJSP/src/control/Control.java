@@ -38,26 +38,31 @@ public class Control extends HttpServlet {
 			String restaurant_name = request.getParameter("Query b Dropdown");
 			
 			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
-			String[][] menuInfo = restaurantbean.getMenuItems(restaurant_id, db);
-			
-			for(int i=0;i<menuInfo.length;i++){
-				for(int j=0;j<menuInfo[i].length;j++) {
-					if(menuInfo[i][j]!=null) {
-						System.out.println(menuInfo[i][j]);
-					}
-				}
-			}
+			ResultSet menuInfo = restaurantbean.getMenuItems(restaurant_id, db);
 			
 			request.getSession(true).setAttribute("ArrayQueryB", menuInfo);
-			request.getRequestDispatcher("RestaurantsAndMenus.jsp").forward(request, response);
+			request.getRequestDispatcher("/QueryResultPages/QueryB.jsp").forward(request, response);
 		}
 		
 		else if(request.getParameter("cmdRest").equals("Query c")) {
-			System.out.println(request.getParameter("Query c Dropdown"));
+			String restaurant_name = request.getParameter("Query b Dropdown");
+			
+			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
+			ResultSet menuInfo = restaurantbean.getMenuItems(restaurant_id, db);
+			
+			request.getSession(true).setAttribute("ArrayQueryB", menuInfo);
+			request.getRequestDispatcher("/QueryResultPages/QueryB.jsp").forward(request, response);
 		}
 		
 		else if(request.getParameter("cmdRest").equals("Query d")) {
-			System.out.println(request.getParameter("Query d Dropdown"));
+			String restaurant_name = request.getParameter("Query d Dropdown");
+			System.out.println(restaurant_name);
+			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
+			System.out.println(restaurant_id);
+			ResultSet menuInfo = restaurantbean.getMostExpensive(restaurant_id, db);
+			
+			request.getSession(true).setAttribute("ArrayQueryD", menuInfo);
+			request.getRequestDispatcher("/QueryResultPages/QueryD.jsp").forward(request, response);
 		}
 		
 		else if(request.getParameter("cmdRest").equals("Query e")) {
