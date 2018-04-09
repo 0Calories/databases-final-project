@@ -12,25 +12,25 @@ WHERE Restaurant.restaurant_id = Location.restaurant_id AND Restaurant.restauran
     FROM Rating
     WHERE Rating.rating_date BETWEEN'2015/01/01' AND '2015/01/31')
 
--- H
-SELECT Rest.Name, RL.firstOpenDate AS date
+-- H Replace 3 with user id
+SELECT Rest.Name, RL.first_open_date AS date
 FROM Rating Rat
-LEFT JOIN Restaurant Rest ON Rat.RestaurantID=Rest.RestaurantID
-LEFT JOIN Location RL ON RL.RestaurantID=Rat.RestaurantID
-WHERE Rat.UserID = '$userIDSelect'
-      AND ((Rat.Price>( SELECT AVG(Rat.Staff)
+LEFT JOIN Restaurant Rest ON Rat.restaurant_id=Rest.restaurant_id
+LEFT JOIN Location RL ON RL.restaurant_id=Rat.restaurant_id
+WHERE Rat.user_id = 3
+      AND ((Rat.price>( SELECT AVG(Rat.staff)
         FROM Rating Rat, Restaurant Rest
-        WHERE Rat.RestaurantID=Rest.RestaurantID))
-      OR (Rat.Mood>( SELECT AVG(Rat.Staff)
+        WHERE Rat.restaurant_id=Rest.restaurant_id))
+      OR (Rat.mood>( SELECT AVG(Rat.staff)
         FROM Rating Rat, Restaurant Rest
-        WHERE Rat.RestaurantID=Rest.RestaurantID))
-      OR (Rat.Food>( SELECT AVG(Rat.Staff)
+        WHERE Rat.restaurant_id=Rest.restaurant_id))
+      OR (Rat.food>( SELECT AVG(Rat.staff)
         FROM Rating Rat, Restaurant Rest
-        WHERE Rat.RestaurantID=Rest.RestaurantID))
-      OR (Rat.Staff>( SELECT AVG(Rat.Staff)
+        WHERE Rat.restaurant_id=Rest.restaurant_id))
+      OR (Rat.staff>( SELECT AVG(Rat.staff)
         FROM Rating Rat, Restaurant Rest
-        WHERE Rat.RestaurantID=Rest.RestaurantID)))
-GROUP BY RL.firstOpenDate, Rest.name
+        WHERE Rat.restaurant_id=Rest.restaurant_id)))
+GROUP BY RL.first_open_date, Rest.name
 
 -- I Replace 'Indian' with restaurant type
 SELECT Rater.name
