@@ -41,6 +41,12 @@
 	            <p>Rater Email
 	               <input type="text" size="20" name="raterEmail">
 	            </p>
+	            <p>Rater Join Date
+	               <input type="text" size="20" name="raterJoinDate">
+	            </p>
+	            <p>Rater Reputation
+	               <input type="number" name="raterReputation" min="1" max="5">
+	            </p>
 	            
 	            <p>
 	                <input type="submit" name="cmdRest" value="Add Rater">
