@@ -9,10 +9,10 @@
 <body>
     	<center><H1>Query Restaurants and menus</H1></center>
         
-        <form action="Control" method="POST">
+        <form action="Control" method="GET">
         	<p align="left"><i><strong>a)</strong> Display all the information about a user‐specified restaurant. That is, the user should select the name of the restaurant from a list, and the information as contained in the restaurant and location tables should then displayed on the screen.
             </i></p>
-            <p align="left">Specify the restaurant:
+            <p align="left" name="cmdRest" value="GetAllRestaurants">Specify the restaurant:
 				<select>
 					<option value="volvo">Volvo</option>
 					<option value="saab">Saab</option>
