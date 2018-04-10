@@ -114,6 +114,7 @@ st.close();
 			</p>
 			
             <p>
+            <!--
 				<TABLE BORDER="1">
 		            <TR>
 		                <TH>item_id</TH>
@@ -123,27 +124,30 @@ st.close();
 		                <TH>description</TH>
 		                <TH>price</TH>
 		            </TR>
-		    <% 
-		    	String[][] QueryBResult = (String[][]) session.getAttribute("ArrayQueryB");
-		        
-		        if(res!=null){
+				<%
+			    	//String[][] QueryBResult = (String[][]) session.getAttribute("ArrayQueryB");
+		            //System.out.println("HERE");
+		            //System.out.println(QueryBResult);
+		            //int c=0;
+		            //if(QueryBResult!=null){
+		            	
 		            %>
-		            <TR>
-		                <td> <%= res[0] %></td>
-		                <TD> <%= res[1] %></TD>
-		                <TD> <%= res[2] %></TD>
-		                <TD> <%= res[3] %></TD>
-		                <TD> <%= res[4] %></TD>
-		                <TD> <%= res[5] %></TD>
-		                <TD> <%= res[6] %></TD>
-		                <TD> <%= res[7] %></TD>
-		                <TD> <%= res[8] %></TD>
-		                <TD> <%= res[9] %></TD>
-		                <TD> <%= res[10] %></TD>
-		            </TR>
-		            <% } %>
+		            
+					<c:forEach var="row" begin="0" end=something here>
+						<TR>
+							<%
+								//row = %> <c:out value = "${row}"/> <% 
+								//for(int i=0;i<QueryBResult.length;i++){
+									//	if(QueryBResult[i][c]!=null) {
+										//	%><td>somethinghere </td> <%
+										//}
+								//}
+		            //}
+							%>
+						</TR>
+					</c:forEach>
 		        </TABLE>
-		        
+		        -->
                 <input type="submit" name="cmdRest" value="Query b">
             </p>
         </form>
@@ -198,10 +202,9 @@ st.close();
         
         <TABLE BORDER="1">
             <TR>
-                <TH>user_id</TH>
-                <TH>name</TH>
-                <TH>total_rating</TH>
-                <TH>restaurant_id</TH>
+                <TH>average menu price</TH>
+                <TH>restaurant type</TH>
+                <TH>menu category</TH>
             </TR>
             <% while(resultSet.next()){ %>
             <TR>

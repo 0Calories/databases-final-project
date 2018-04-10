@@ -45,13 +45,11 @@ public class Control extends HttpServlet {
 		}
 		
 		else if(request.getParameter("cmdRest").equals("Query c")) {
-			String restaurant_name = request.getParameter("Query b Dropdown");
+			String restaurant_category = request.getParameter("Query c Dropdown");
+			ResultSet results = restaurantbean.executeQueryC(restaurant_category, db);
 			
-			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
-			ResultSet menuInfo = restaurantbean.getMenuItems(restaurant_id, db);
-			
-			request.getSession(true).setAttribute("ArrayQueryB", menuInfo);
-			request.getRequestDispatcher("/QueryResultPages/QueryB.jsp").forward(request, response);
+			request.getSession(true).setAttribute("ArrayQueryC", results);
+			request.getRequestDispatcher("/QueryResultPages/QueryC.jsp").forward(request, response);
 		}
 		
 		else if(request.getParameter("cmdRest").equals("Query d")) {
@@ -59,9 +57,9 @@ public class Control extends HttpServlet {
 			System.out.println(restaurant_name);
 			String restaurant_id = restaurantbean.getRestaurantID(restaurant_name, db);
 			System.out.println(restaurant_id);
-			ResultSet menuInfo = restaurantbean.getMostExpensive(restaurant_id, db);
+			ResultSet mostExpensive = restaurantbean.getMostExpensive(restaurant_id, db);
 			
-			request.getSession(true).setAttribute("ArrayQueryD", menuInfo);
+			request.getSession(true).setAttribute("ArrayQueryD", mostExpensive);
 			request.getRequestDispatcher("/QueryResultPages/QueryD.jsp").forward(request, response);
 		}
 		
