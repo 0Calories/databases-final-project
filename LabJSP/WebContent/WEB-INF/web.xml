@@ -31,7 +31,11 @@
         <servlet-name>ActionName</servlet-name>
         <servlet-class>control.Add</servlet-class>
     </servlet>
-    
+    <servlet-mapping>
+    	<servlet-name>ActionName</servlet-name>
+    	<url-pattern>/ActionName</url-pattern>
+    </servlet-mapping>
+
     <session-config>
         <session-timeout>
             30
