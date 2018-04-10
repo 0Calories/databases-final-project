@@ -33,27 +33,29 @@ WHERE Rat.user_id = 3
 GROUP BY RL.first_open_date, Rest.name
 
 -- I Replace 'Indian' with restaurant type
-SELECT Rater.name
-FROM Rater
-INNER JOIN
-  (SELECT Rating.food, Rating.user_id
+SELECT Rater.name, Restaurant.name
+FROM Rater, Restaurant,
+  (SELECT Rating.food, Rating.user_id, Restaurant.restaurant_id
   FROM Rating, Restaurant
-  WHERE Restaurant.type = 'Indian' AND Rating.restaurant_id = Restaurant.restaurant_id AND Rating.food IN
+  WHERE Restaurant.type = 'Korean' AND Rating.restaurant_id = Restaurant.restaurant_id AND Rating.food IN
   	(SELECT MAX(Rating.food) FROM Rating, Restaurant
-  	 WHERE Restaurant.type = 'Indian' AND Rating.restaurant_id = Restaurant.restaurant_id)
-  GROUP BY Rating.user_id, Rating.food) MaxRating ON MaxRating.user_id = Rater.user_id
+  	WHERE Restaurant.type = 'Korean' AND Rating.restaurant_id = Restaurant.restaurant_id)
+  GROUP BY Rating.user_id, Rating.food, Restaurant.restaurant_id) MaxRating
+WHERE MaxRating.user_id = Rater.user_id AND Restaurant.restaurant_id = MaxRating.restaurant_id
 
 -- J Replace 'Indian' with restaurant type
-SELECT T.restaurant_id, T.name , T.total_rating
+SELECT Average.type , SUM(Average.total_rating) as LowerthanType, SUM(Selected.total_rating) as AverageofType
 FROM
-	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating, Restaurant.restaurant_id, Restaurant.name
+	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating, Restaurant.type
 	FROM Rater, Rating, Restaurant
-	WHERE Rater.user_id = Rating.user_id AND Restaurant.restaurant_id = Rating.restaurant_id
-	GROUP BY Restaurant.restaurant_id) AS T
-
-WHERE T.total_rating <
-	(SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating
+	WHERE Rater.user_id = Rating.user_id AND Restaurant.restaurant_id = Rating.restaurant_id AND Restaurant.type != 'Indian'
+	GROUP BY Restaurant.type) AS Average,
+  (SELECT AVG(Rating.price + Rating.Food + Rating.mood + Rating.staff) as total_rating
 	FROM Rater
 	INNER JOIN Rating ON Rater.user_id = Rating.user_id
 	INNER JOIN Restaurant ON Restaurant.restaurant_id = Rating.restaurant_id AND Restaurant.type = 'Indian'
-	GROUP BY Restaurant.restaurant_id)
+  GROUP BY Restaurant.type) as Selected
+
+WHERE Average.total_rating < Selected.total_rating
+GROUP BY (Average.type)
+
