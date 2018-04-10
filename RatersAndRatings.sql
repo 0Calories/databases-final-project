@@ -35,9 +35,6 @@ IN (SELECT R1.user_id FROM Rater R1
 	)
 AND Rate.user_id = R.user_id AND Rate.restaurant_id = Rest.restaurant_id
 
-
-
-
 --m)
 
 SELECT Rater.name, Rater.reputation, comment, items.name, items.price FROM
@@ -51,6 +48,13 @@ JOIN
 	LIMIT 1) most_frequent_rater
 ON  items.user_id = most_frequent_rater.most_frequent_userid
 LEFT JOIN Rater ON Rater.user_id = most_frequent_rater.most_frequent_userid
+
+--n)
+SELECT rter.name, rter.email
+FROM rater rter
+WHERE (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=rter.user_id) < (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id='blakey'--(SELECT user_id FROM rater WHERE name='boopsmith')
+													)
+
 
 -- o
 SELECT  R.name ,R.type , R.email, Res.name, Ra.price , Ra.food, Ra.mood, Ra.staff, Ra.comments

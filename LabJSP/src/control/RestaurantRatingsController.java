@@ -54,7 +54,13 @@ public class RestaurantRatingsController extends HttpServlet {
 			} else if (request.getParameter("cmdN") != null) {
 				System.out.println("cmdN function selected");
 				selectedCommand = "cmdN";
-				query = "";
+				String raterName = request.getParameter("raterName");
+				System.out.println(raterName);
+				query = "SELECT rter.name, rter.email " +
+						"FROM rater rter " +
+						"WHERE (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=rter.user_id) < (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=(SELECT DISTINCT user_id FROM rater WHERE name=\'" + raterName +"\'))";
+				
+				
 			} 
 			
 			resultSet = statement.executeQuery(query);
@@ -69,7 +75,9 @@ public class RestaurantRatingsController extends HttpServlet {
 			// Query N is not implemented yet :(
 			if (selectedCommand.equals("cmdM")) {
 				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryMResults.jsp");
-			} else if (selectedCommand.equals("cmdN")) {
+			} 
+			
+			else if (selectedCommand.equals("cmdN")) {
 				rd = this.getServletContext().getRequestDispatcher("/QueryResultPages/QueryNResults.jsp");
 			} 
 			

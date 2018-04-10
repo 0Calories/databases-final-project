@@ -15,18 +15,12 @@ if(resultSet != null){ %>
         <TABLE BORDER="1">
             <TR>
                 <TH>name</TH>
-                <TH>reputation</TH>
-                <TH>comment</TH>
-                <TH>item_name</TH>
-                <TH>price</TH>
+                <TH>email</TH>
             </TR>
             <% while(resultSet.next()){ %>
             <TR>
                 <TD> <%= resultSet.getString(1) %></td>
                 <TD> <%= resultSet.getString(2) %></td>
-                <TD> <%= resultSet.getString(3) %></td>
-                <TD> <%= resultSet.getString(4) %></td>
-                <TD> <%= resultSet.getString(5) %></td>
             </TR>
             <% } %>
         </TABLE>

@@ -86,7 +86,7 @@
         </form>
         
         <!-- ========= QUERY N) ========= -->
-        <p align="left"><i><strong>n)</strong>*NOT IMPLEMENTED* Find the names and emails of all raters who gave ratings that are lower than that of a rater with a name called John, in terms of the combined rating of Price, Food, Mood and Staff.
+        <p align="left"><i><strong>n)</strong>Find the names and emails of all raters who gave ratings that are lower than that of a rater with a name called John, in terms of the combined rating of Price, Food, Mood and Staff.
         </i></p>
         
         <form action="RestaurantRatingsController" method="GET">
