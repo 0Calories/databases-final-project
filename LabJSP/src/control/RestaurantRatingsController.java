@@ -57,8 +57,8 @@ public class RestaurantRatingsController extends HttpServlet {
 				String raterName = request.getParameter("raterName");
 				System.out.println(raterName);
 				query = "SELECT rter.name, rter.email " +
-						"FROM rater rter " +
-						"WHERE (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=rter.user_id) < (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=(SELECT DISTINCT user_id FROM rater WHERE name=\'" + raterName +"\'))";
+						"FROM rater rter " + //(SELECT user_id FROM rater WHERE name=
+						"WHERE (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=rter.user_id) < (SELECT AVG(price+food+mood+staff)/4 FROM rating WHERE user_id=\'" + raterName +"\')";
 				
 				
 			} 
