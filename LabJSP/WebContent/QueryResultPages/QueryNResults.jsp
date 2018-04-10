@@ -12,7 +12,7 @@ if(resultSet != null){ %>
 <html>
     <head><title>Query M Results</title></head>
     <BODY>
-        <TABLE BORDER="1">
+		<TABLE BORDER="1">
             <TR>
                 <TH>name</TH>
                 <TH>email</TH>
